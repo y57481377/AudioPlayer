@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>fileName</key>
+		<string>莫文蔚 - 爱情(Live) - live.mp3</string>
+		<key>name</key>
+		<string>莫文蔚 - 爱情(Live) - live</string>
+		<key>singer</key>
+		<string>莫文蔚</string>
+		<key>musicIcon</key>
+		<string></string>
+		<key>lrcName</key>
+		<string>莫文蔚 - 爱情(Live) - live.lrc</string>
+	</dict>
+	<dict>
+		<key>fileName</key>
+		<string>王筝 - 越单纯越幸福.mp3</string>
+		<key>name</key>
+		<string>王筝 - 越单纯越幸福</string>
+		<key>singer</key>
+		<string>王筝</string>
+		<key>musicIcon</key>
+		<string></string>
+		<key>lrcName</key>
+		<string>王筝 - 越单纯越幸福.lrc</string>
+	</dict>
+	<dict>
+		<key>fileName</key>
+		<string>张学友 - 别问.mp3</string>
+		<key>name</key>
+		<string>张学友 - 别问</string>
+		<key>singer</key>
+		<string>张学友</string>
+		<key>musicIcon</key>
+		<string></string>
+		<key>lrcName</key>
+		<string>张学友 - 别问.lrc</string>
+	</dict>
+</array>
+</plist>
