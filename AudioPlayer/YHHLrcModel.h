@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface YHHMusicLrcModel : NSObject
+@class YHHMusicModel;
+@interface YHHLrcModel : NSObject
 //一句歌词
 @property (strong, nonatomic) NSString *text;
 // 每句歌词对应的时间
 @property (assign, nonatomic) NSTimeInterval time;
+
++ (NSArray *)getLrcsWithMusic:(YHHMusicModel *)music;
 @end

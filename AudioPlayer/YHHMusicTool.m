@@ -13,6 +13,7 @@
 
 static NSArray *_musicModels;
 static YHHMusicModel *_music;
+static AVAudioPlayer *_player;
 
 + (void)initialize {
     [super initialize];
@@ -23,6 +24,76 @@ static YHHMusicModel *_music;
         _music = _musicModels[0];
     }
 }
+
++ (AVAudioPlayer *)audioPlayerWithMusic:(YHHMusicModel *)music {
+    // 获取音乐文件路径
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:music.fileName withExtension:nil];
+    NSLog(@"%@",url);
+    NSError *error = nil;
+    
+    // 如果已经有在播放的音乐，则不创建播放器
+    if (_player) return _player;
+    
+    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    // 设置播放循环次数
+    _player.numberOfLoops = 0;
+    
+    if (error) {
+        NSLog(@"----%@",error.localizedDescription);
+        return nil;
+    }
+    [_player prepareToPlay];
+    
+    return _player;
+}
+
++ (AVAudioPlayer *)playNextMusic {
+    YHHMusicModel *music = [self nextMusic];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:_music.fileName withExtension:nil];
+    NSLog(@"%@",url);
+    NSError *error = nil;
+    
+    // 如果已经有在播放的音乐，则不创建播放器
+    if (_player)  [_player stop];
+    
+    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    // 设置播放循环次数
+    _player.numberOfLoops = 0;
+    
+    if (error) {
+        NSLog(@"----%@",error.localizedDescription);
+        return nil;
+    }
+    [_player prepareToPlay];
+    
+    return _player;
+
+}
+
++ (AVAudioPlayer *)playPreviousMusic {
+    YHHMusicModel *music = [self previousMusic];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:music.fileName withExtension:nil];
+    NSLog(@"%@",url);
+    NSError *error = nil;
+    
+    // 如果已经有在播放的音乐，则不创建播放器
+    if (_player)  [_player stop];
+    
+    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    // 设置播放循环次数
+    _player.numberOfLoops = 0;
+    
+    if (error) {
+        NSLog(@"----%@",error.localizedDescription);
+        return nil;
+    }
+    [_player prepareToPlay];
+    
+    return _player;
+}
+
+
 
 + (YHHMusicModel *)previousMusic {
     NSInteger count = _musicModels.count;

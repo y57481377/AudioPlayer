@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F51946A1EA9A335001BC65C /* 莫文蔚 - 爱情(Live) - live.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F5194691EA9A335001BC65C /* 莫文蔚 - 爱情(Live) - live.mp3 */; };
 		2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F51946C1EA9AC64001BC65C /* YHHMusicModel.m */; };
-		2F5194701EA9ADFE001BC65C /* YHHMusicLrcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F51946F1EA9ADFE001BC65C /* YHHMusicLrcModel.m */; };
+		2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F51946F1EA9ADFE001BC65C /* YHHLrcModel.m */; };
 		2F5194731EA9AEEA001BC65C /* 王筝 - 越单纯越幸福.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F5194721EA9AEEA001BC65C /* 王筝 - 越单纯越幸福.mp3 */; };
 		2F5194751EA9AEF0001BC65C /* 张学友 - 别问.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F5194741EA9AEF0001BC65C /* 张学友 - 别问.mp3 */; };
 		2F5194781EA9E21D001BC65C /* YHHMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5194771EA9E21D001BC65C /* YHHMusicTool.m */; };
@@ -24,6 +24,7 @@
 		2F583E471EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E451EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc */; };
 		2F583E481EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */; };
 		2F583E4B1EA8C4120048BF07 /* 张学友 - 别问.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */; };
+		2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */; };
 		2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */; };
 		2FE6BCA51EABAE33003FC9FD /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA41EABAE33003FC9FD /* ViewController1.m */; };
 /* End PBXBuildFile section */
@@ -42,8 +43,8 @@
 		2F5194691EA9A335001BC65C /* 莫文蔚 - 爱情(Live) - live.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "莫文蔚 - 爱情(Live) - live.mp3"; sourceTree = "<group>"; };
 		2F51946B1EA9AC64001BC65C /* YHHMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHMusicModel.h; sourceTree = "<group>"; };
 		2F51946C1EA9AC64001BC65C /* YHHMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHMusicModel.m; sourceTree = "<group>"; };
-		2F51946E1EA9ADFE001BC65C /* YHHMusicLrcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHMusicLrcModel.h; sourceTree = "<group>"; };
-		2F51946F1EA9ADFE001BC65C /* YHHMusicLrcModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHMusicLrcModel.m; sourceTree = "<group>"; };
+		2F51946E1EA9ADFE001BC65C /* YHHLrcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcModel.h; sourceTree = "<group>"; };
+		2F51946F1EA9ADFE001BC65C /* YHHLrcModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHLrcModel.m; sourceTree = "<group>"; };
 		2F5194721EA9AEEA001BC65C /* 王筝 - 越单纯越幸福.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "王筝 - 越单纯越幸福.mp3"; sourceTree = "<group>"; };
 		2F5194741EA9AEF0001BC65C /* 张学友 - 别问.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "张学友 - 别问.mp3"; sourceTree = "<group>"; };
 		2F5194761EA9E21D001BC65C /* YHHMusicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHMusicTool.h; sourceTree = "<group>"; };
@@ -65,6 +66,8 @@
 		2F583E451EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "莫文蔚 - 爱情(Live) - live.lrc"; sourceTree = "<group>"; };
 		2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "王筝 - 越单纯越幸福.lrc"; sourceTree = "<group>"; };
 		2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "张学友 - 别问.lrc"; sourceTree = "<group>"; };
+		2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcTableView.h; sourceTree = "<group>"; };
+		2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHLrcTableView.m; sourceTree = "<group>"; };
 		2FE6BCA01EAA69B5003FC9FD /* UIImage+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extention.h"; sourceTree = "<group>"; };
 		2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extention.m"; sourceTree = "<group>"; };
 		2FE6BCA31EABAE33003FC9FD /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
@@ -94,8 +97,8 @@
 			children = (
 				2F51946B1EA9AC64001BC65C /* YHHMusicModel.h */,
 				2F51946C1EA9AC64001BC65C /* YHHMusicModel.m */,
-				2F51946E1EA9ADFE001BC65C /* YHHMusicLrcModel.h */,
-				2F51946F1EA9ADFE001BC65C /* YHHMusicLrcModel.m */,
+				2F51946E1EA9ADFE001BC65C /* YHHLrcModel.h */,
+				2F51946F1EA9ADFE001BC65C /* YHHLrcModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -125,6 +128,8 @@
 				2F583E221EA86AD30048BF07 /* AppDelegate.m */,
 				2F583E241EA86AD30048BF07 /* ViewController.h */,
 				2F583E251EA86AD30048BF07 /* ViewController.m */,
+				2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */,
+				2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */,
 				2FE6BCA01EAA69B5003FC9FD /* UIImage+Extention.h */,
 				2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */,
 				2F5194761EA9E21D001BC65C /* YHHMusicTool.h */,
@@ -282,13 +287,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F583E261EA86AD30048BF07 /* ViewController.m in Sources */,
-				2F5194701EA9ADFE001BC65C /* YHHMusicLrcModel.m in Sources */,
+				2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */,
 				2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */,
 				2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */,
 				2FE6BCA51EABAE33003FC9FD /* ViewController1.m in Sources */,
 				2F583E231EA86AD30048BF07 /* AppDelegate.m in Sources */,
 				2F583E201EA86AD20048BF07 /* main.m in Sources */,
 				2F5194781EA9E21D001BC65C /* YHHMusicTool.m in Sources */,
+				2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3XL4J3LLT8;
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -438,6 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3XL4J3LLT8;
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

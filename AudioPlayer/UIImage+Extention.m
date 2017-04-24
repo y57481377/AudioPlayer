@@ -12,7 +12,7 @@
 
 + (UIImage *)yhh_imageWithColor:(UIColor *)color {
     
-    CGRect rect = CGRectMake(0, 0, 1, 0.5);
+    CGRect rect = CGRectMake(0, 0, 1, 1);
     // 开始图形上下文
     UIGraphicsBeginImageContext(rect.size);
     // 获取图形上下文

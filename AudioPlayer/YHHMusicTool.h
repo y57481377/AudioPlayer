@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class YHHMusicModel;
 @interface YHHMusicTool : NSObject
-
-+ (YHHMusicModel *)previousMusic;
-
 + (YHHMusicModel *)playingMusic;
 
-+ (YHHMusicModel *)nextMusic;
++ (AVAudioPlayer *)audioPlayerWithMusic:(YHHMusicModel *)music;
+
++ (AVAudioPlayer *)playPreviousMusic;
+
++ (AVAudioPlayer *)playNextMusic;
 
 @end
