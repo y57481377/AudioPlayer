@@ -25,6 +25,7 @@
 		2F583E481EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */; };
 		2F583E4B1EA8C4120048BF07 /* 张学友 - 别问.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */; };
 		2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */; };
+		2FE5DB341EAF3DFC00085F6D /* YHHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */; };
 		2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */; };
 		2FE6BCA51EABAE33003FC9FD /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA41EABAE33003FC9FD /* ViewController1.m */; };
 /* End PBXBuildFile section */
@@ -66,8 +67,11 @@
 		2F583E451EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "莫文蔚 - 爱情(Live) - live.lrc"; sourceTree = "<group>"; };
 		2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "王筝 - 越单纯越幸福.lrc"; sourceTree = "<group>"; };
 		2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "张学友 - 别问.lrc"; sourceTree = "<group>"; };
+		2F84ABC51EAF26530075BCDE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcTableView.h; sourceTree = "<group>"; };
 		2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHLrcTableView.m; sourceTree = "<group>"; };
+		2FE5DB321EAF3DFC00085F6D /* YHHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHNavigationController.h; sourceTree = "<group>"; };
+		2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHNavigationController.m; sourceTree = "<group>"; };
 		2FE6BCA01EAA69B5003FC9FD /* UIImage+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extention.h"; sourceTree = "<group>"; };
 		2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extention.m"; sourceTree = "<group>"; };
 		2FE6BCA31EABAE33003FC9FD /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		2F583E1D1EA86AD20048BF07 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				2FE5DB311EAF3DD800085F6D /* RootController */,
 				2F583E211EA86AD30048BF07 /* AppDelegate.h */,
 				2F583E221EA86AD30048BF07 /* AppDelegate.m */,
 				2F583E241EA86AD30048BF07 /* ViewController.h */,
@@ -142,6 +147,7 @@
 				2F583E1E1EA86AD20048BF07 /* Supporting Files */,
 				2FE6BCA31EABAE33003FC9FD /* ViewController1.h */,
 				2FE6BCA41EABAE33003FC9FD /* ViewController1.m */,
+				2F84ABC51EAF26530075BCDE /* Header.h */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -168,6 +174,15 @@
 				2F583E3A1EA86AD30048BF07 /* Info.plist */,
 			);
 			path = AudioPlayerTests;
+			sourceTree = "<group>";
+		};
+		2FE5DB311EAF3DD800085F6D /* RootController */ = {
+			isa = PBXGroup;
+			children = (
+				2FE5DB321EAF3DFC00085F6D /* YHHNavigationController.h */,
+				2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */,
+			);
+			name = RootController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +238,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -293,6 +308,7 @@
 				2FE6BCA51EABAE33003FC9FD /* ViewController1.m in Sources */,
 				2F583E231EA86AD30048BF07 /* AppDelegate.m in Sources */,
 				2F583E201EA86AD20048BF07 /* main.m in Sources */,
+				2FE5DB341EAF3DFC00085F6D /* YHHNavigationController.m in Sources */,
 				2F5194781EA9E21D001BC65C /* YHHMusicTool.m in Sources */,
 				2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */,
 			);
@@ -430,12 +446,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3XL4J3LLT8;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AudioPlayer/Header.h";
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -443,12 +463,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3XL4J3LLT8;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AudioPlayer/Header.h";
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

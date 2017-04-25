@@ -46,11 +46,11 @@
     }
     YHHLrcModel *lrc = _lrcs[indexPath.row];
     if (indexPath.row == _currentIndex) {
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textLabel.textColor = [UIColor redColor];
+        cell.textLabel.font = AutoFont(16);
+        cell.textLabel.textColor = red_Globe_Color;
     }else {
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
-        cell.textLabel.textColor = [UIColor blackColor];
+        cell.textLabel.font = AutoFont(15);
+        cell.textLabel.textColor = white_Text_Color;
     }
     
     cell.textLabel.text = lrc.text;

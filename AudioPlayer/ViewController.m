@@ -13,8 +13,8 @@
 #import "YHHLrcModel.h"
 #import "YHHLrcTableView.h"
 #import "UIImage+Extention.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-#define yhhColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/1.0]
 @interface ViewController ()<AVAudioPlayerDelegate>
 
 @property (strong, nonatomic) AVPlayer *player1;
@@ -45,10 +45,17 @@
     // Do any additional setup after loading the view, typically from a nib.
     UIImage *image = [[UIImage alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage yhh_imageWithColor:yhhColor(191, 191, 191, 1)]];
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setShadowImage:[UIImage yhh_imageWithColor:yhh_Color(191, 191, 191, 1)]];
+    
     _music = [YHHMusicTool playingMusic];
     _player = [YHHMusicTool audioPlayerWithMusic:_music];
     [self setupMusicUI];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
     
 }
 
@@ -59,11 +66,11 @@
     _diskImage.layer.borderWidth = 10;
     _diskImage.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1].CGColor;
     _diskImage.layer.masksToBounds = YES;
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self invalidateTimer];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,6 +108,8 @@
     [self invalidateTimer];
     [self startTimer];
     [_player play];
+    
+    [self setupLockedView];
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
@@ -118,9 +127,7 @@
     sender.selected = !sender.selected;
     if (sender.selected) {
         NSLog(@"播放");
-        [_player play];
-        _currentTimeLab.text = [self timeStrWithTimeInterval:_player.currentTime];
-        [self startTimer];
+        [self startPlayingMusic];
     }else {
         NSLog(@"暂停");
         [_player pause];
@@ -203,5 +210,30 @@
     NSInteger sec = (NSInteger)interval % 60;
     NSString *timeStr = [NSString stringWithFormat:@"%02ld:%02ld",min,sec];
     return timeStr;
+}
+
+- (void)setupLockedView {
+    YHHMusicModel *playingMusic = [YHHMusicTool playingMusic];
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic setObject:playingMusic.name forKey:MPMediaItemPropertyTitle];
+    [dic setObject:playingMusic.singer forKey:MPMediaItemPropertyArtist];
+    [dic setObject:[NSNumber numberWithDouble:_player.currentTime] forKey:MPMediaItemPropertyPlaybackDuration];
+    [dic setObject:[NSNumber numberWithDouble:_player.duration] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    
+    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = dic;
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+}
+
+-(void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    
+    if (event.type==UIEventTypeRemoteControl) {
+        
+        NSLog(@"%ld",event.subtype);
+        
+    }
+    
 }
 @end
