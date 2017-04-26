@@ -8,11 +8,14 @@
 
 #ifndef Header_h
 #define Header_h
-
+#import "UIView+Extension.h"
+#import "UIButton+Extension.h"
 
 /**** 屏幕宽高 ****/
 #define Screen_Width [[UIScreen mainScreen] bounds].size.width
 #define Screen_Height [[UIScreen mainScreen] bounds].size.height
+
+#define NaviBar_Height 64.f
 
 /**** 手机型号 ****/
 //iPhone or iPad

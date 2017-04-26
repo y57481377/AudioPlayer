@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4219A01EB0303A009ED43C /* YHHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F42199F1EB0303A009ED43C /* YHHRootViewController.m */; };
+		2F4219A41EB030CF009ED43C /* YHHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4219A31EB030CF009ED43C /* YHHNavigationBar.m */; };
+		2F4219A71EB039BA009ED43C /* YHHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4219A61EB039BA009ED43C /* YHHTabBarController.m */; };
+		2F4219AF1EB03F41009ED43C /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4219AE1EB03F41009ED43C /* UIView+Extension.m */; };
+		2F4219B21EB04B58009ED43C /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4219B11EB04B58009ED43C /* UIButton+Extension.m */; };
 		2F51946A1EA9A335001BC65C /* 莫文蔚 - 爱情(Live) - live.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F5194691EA9A335001BC65C /* 莫文蔚 - 爱情(Live) - live.mp3 */; };
 		2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F51946C1EA9AC64001BC65C /* YHHMusicModel.m */; };
 		2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F51946F1EA9ADFE001BC65C /* YHHLrcModel.m */; };
@@ -41,6 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F42199E1EB0303A009ED43C /* YHHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHRootViewController.h; sourceTree = "<group>"; };
+		2F42199F1EB0303A009ED43C /* YHHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHRootViewController.m; sourceTree = "<group>"; };
+		2F4219A21EB030CF009ED43C /* YHHNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHNavigationBar.h; sourceTree = "<group>"; };
+		2F4219A31EB030CF009ED43C /* YHHNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHNavigationBar.m; sourceTree = "<group>"; };
+		2F4219A51EB039BA009ED43C /* YHHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHTabBarController.h; sourceTree = "<group>"; };
+		2F4219A61EB039BA009ED43C /* YHHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHTabBarController.m; sourceTree = "<group>"; };
+		2F4219AD1EB03F41009ED43C /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		2F4219AE1EB03F41009ED43C /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		2F4219B01EB04B58009ED43C /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		2F4219B11EB04B58009ED43C /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		2F5194691EA9A335001BC65C /* 莫文蔚 - 爱情(Live) - live.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "莫文蔚 - 爱情(Live) - live.mp3"; sourceTree = "<group>"; };
 		2F51946B1EA9AC64001BC65C /* YHHMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHMusicModel.h; sourceTree = "<group>"; };
 		2F51946C1EA9AC64001BC65C /* YHHMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHMusicModel.m; sourceTree = "<group>"; };
@@ -96,6 +111,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4219A11EB030AA009ED43C /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				2F42199E1EB0303A009ED43C /* YHHRootViewController.h */,
+				2F42199F1EB0303A009ED43C /* YHHRootViewController.m */,
+				2F4219A21EB030CF009ED43C /* YHHNavigationBar.h */,
+				2F4219A31EB030CF009ED43C /* YHHNavigationBar.m */,
+			);
+			name = NavigationBar;
+			sourceTree = "<group>";
+		};
+		2F4219A91EB03F04009ED43C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2FE6BCA01EAA69B5003FC9FD /* UIImage+Extention.h */,
+				2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */,
+				2F4219B01EB04B58009ED43C /* UIButton+Extension.h */,
+				2F4219B11EB04B58009ED43C /* UIButton+Extension.m */,
+				2F4219AD1EB03F41009ED43C /* UIView+Extension.h */,
+				2F4219AE1EB03F41009ED43C /* UIView+Extension.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		2F5194711EA9AE15001BC65C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,15 +167,14 @@
 		2F583E1D1EA86AD20048BF07 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				2FE5DB311EAF3DD800085F6D /* RootController */,
 				2F583E211EA86AD30048BF07 /* AppDelegate.h */,
 				2F583E221EA86AD30048BF07 /* AppDelegate.m */,
+				2FE5DB311EAF3DD800085F6D /* RootController */,
+				2F4219A91EB03F04009ED43C /* Category */,
 				2F583E241EA86AD30048BF07 /* ViewController.h */,
 				2F583E251EA86AD30048BF07 /* ViewController.m */,
 				2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */,
 				2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */,
-				2FE6BCA01EAA69B5003FC9FD /* UIImage+Extention.h */,
-				2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */,
 				2F5194761EA9E21D001BC65C /* YHHMusicTool.h */,
 				2F5194771EA9E21D001BC65C /* YHHMusicTool.m */,
 				2F5194711EA9AE15001BC65C /* Model */,
@@ -181,6 +219,9 @@
 			children = (
 				2FE5DB321EAF3DFC00085F6D /* YHHNavigationController.h */,
 				2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */,
+				2F4219A51EB039BA009ED43C /* YHHTabBarController.h */,
+				2F4219A61EB039BA009ED43C /* YHHTabBarController.m */,
+				2F4219A11EB030AA009ED43C /* NavigationBar */,
 			);
 			name = RootController;
 			sourceTree = "<group>";
@@ -304,11 +345,16 @@
 				2F583E261EA86AD30048BF07 /* ViewController.m in Sources */,
 				2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */,
 				2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */,
+				2F4219A71EB039BA009ED43C /* YHHTabBarController.m in Sources */,
+				2F4219A41EB030CF009ED43C /* YHHNavigationBar.m in Sources */,
 				2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */,
 				2FE6BCA51EABAE33003FC9FD /* ViewController1.m in Sources */,
 				2F583E231EA86AD30048BF07 /* AppDelegate.m in Sources */,
 				2F583E201EA86AD20048BF07 /* main.m in Sources */,
 				2FE5DB341EAF3DFC00085F6D /* YHHNavigationController.m in Sources */,
+				2F4219B21EB04B58009ED43C /* UIButton+Extension.m in Sources */,
+				2F4219AF1EB03F41009ED43C /* UIView+Extension.m in Sources */,
+				2F4219A01EB0303A009ED43C /* YHHRootViewController.m in Sources */,
 				2F5194781EA9E21D001BC65C /* YHHMusicTool.m in Sources */,
 				2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */,
 			);

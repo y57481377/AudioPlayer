@@ -18,16 +18,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBar"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.translucent = NO;
     
-    self.interactivePopGestureRecognizer.delegate = nil;
+    // 设置导航栏 侧滑返回 功能有效
+    [self setNavigationBarHidden:NO];
+    // 设置隐藏导航栏
+    [self.navigationBar setHidden:YES];
 }
-
-//- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-
-    
-//}
-
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

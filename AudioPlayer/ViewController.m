@@ -43,10 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UIImage *image = [[UIImage alloc] init];
-    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setShadowImage:[UIImage yhh_imageWithColor:yhh_Color(191, 191, 191, 1)]];
+    [self setNavBarColor:[UIColor clearColor]];
     
     _music = [YHHMusicTool playingMusic];
     _player = [YHHMusicTool audioPlayerWithMusic:_music];

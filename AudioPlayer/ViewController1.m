@@ -18,6 +18,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.navigationController.navigationBar.hidden = YES;
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    // 设置导航栏按钮
+    [self setNavBarTitle:@"第一页"];
+    UIButton *left = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search)];
+    left.frame = CGRectMake(0, 0, 50, 50);
+    [self setNavBarLeftItem:left];
+    
+    UIButton *left1 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search)];
+    left1.frame = CGRectMake(0, 0, 50, 50);
+    UIButton *left2 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search1)];
+    left2.frame = CGRectMake(0, 0, 50, 50);
+    [self setNavBarLeftItems:@[left1,left2,left]];
+}
+
+- (void)search {
+    NSLog(@"搜索");
+}
+
+- (void)search1 {
+    NSLog(@"搜索1");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,14 +55,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

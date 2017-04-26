@@ -6,9 +6,9 @@
 //  Copyright © 2017年 YHH. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YHHRootViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : YHHRootViewController
 
 
 @end
