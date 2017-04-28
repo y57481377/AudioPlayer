@@ -7,10 +7,9 @@
 //  拥有导航栏的控制器继承该控制器，拥有自定义的导航栏
 
 #import "YHHRootViewController.h"
-#import "YHHNavigationBar.h"
 
 @interface YHHRootViewController ()
-@property (strong, nonatomic) YHHNavigationBar *navBar;
+
 @end
 
 @implementation YHHRootViewController

@@ -16,4 +16,9 @@
 - (CGFloat)yhh_Height;
 - (CGFloat)yhh_Y;
 - (CGFloat)yhh_X;
+
+- (void)setYhh_Width:(CGFloat)width;
+- (void)setYhh_Height:(CGFloat)height;
+- (void)setYhh_X:(CGFloat)x;
+- (void)setYhh_Y:(CGFloat)y;
 @end

@@ -8,7 +8,7 @@
 
 #import "ViewController1.h"
 #import "ViewController.h"
-
+#import "MoviePlayerController.h"
 @interface ViewController1 ()
 
 @end
@@ -32,14 +32,17 @@
     UIButton *left2 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search1)];
     left2.frame = CGRectMake(0, 0, 50, 50);
     [self setNavBarLeftItems:@[left1,left2,left]];
+    
 }
 
 - (void)search {
     NSLog(@"搜索");
+    
 }
 
 - (void)search1 {
-    NSLog(@"搜索1");
+    MoviePlayerController *vc = [[MoviePlayerController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

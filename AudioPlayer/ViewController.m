@@ -48,7 +48,7 @@
     _music = [YHHMusicTool playingMusic];
     _player = [YHHMusicTool audioPlayerWithMusic:_music];
     [self setupMusicUI];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

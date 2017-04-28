@@ -29,7 +29,6 @@
         <!--Item-->
         <scene sceneID="kdz-QF-8UF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cH5-Ai-J51" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="cXr-Fk-Pnd" customClass="YHHNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="EK0-Lj-2Ip"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3dm-eI-zHi">
@@ -40,6 +39,7 @@
                         <segue destination="Jms-88-iBz" kind="relationship" relationship="rootViewController" id="eEf-uK-5sP"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cH5-Ai-J51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-985" y="-510"/>
         </scene>
@@ -237,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srX-Pj-Fv3">
-                                <rect key="frame" x="132" y="370" width="111" height="125"/>
+                                <rect key="frame" x="110" y="376" width="111" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>

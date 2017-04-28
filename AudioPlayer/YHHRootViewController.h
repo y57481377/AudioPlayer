@@ -7,7 +7,11 @@
 //  拥有导航栏的控制器继承该控制器，拥有自定义的导航栏
 
 #import <UIKit/UIKit.h>
+#import "YHHNavigationBar.h"
 @interface YHHRootViewController : UIViewController
+
+@property (strong, nonatomic) YHHNavigationBar *navBar;
+
 /*** 设置自定义导航栏的属性 ***/
 - (void)setNavBarColor:(UIColor *)color;         /*设置导航条颜色*/
 - (void)setNavBarShadowColor:(UIColor *)color;   /*设置导航条分割线颜色*/

@@ -20,7 +20,6 @@
     [self addSubview: separator];
 }
 
-
 - (CGFloat)yhh_Width {
     return self.frame.size.width;
 }
@@ -32,5 +31,26 @@
 }
 - (CGFloat)yhh_Y {
     return self.frame.origin.y;
+}
+
+- (void)setYhh_Width:(CGFloat)width {
+    CGRect frame = self.frame;
+    frame.size.width = width;
+    self.frame = frame;
+}
+- (void)setYhh_Height:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
+}
+- (void)setYhh_X:(CGFloat)x {
+    CGRect frame = self.frame;
+    frame.origin.x = x;
+    self.frame = frame;
+}
+- (void)setYhh_Y:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = y;
+    self.frame = frame;
 }
 @end

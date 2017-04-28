@@ -29,6 +29,7 @@
 		2F583E471EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E451EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc */; };
 		2F583E481EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */; };
 		2F583E4B1EA8C4120048BF07 /* 张学友 - 别问.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */; };
+		2F7B70E21EB31B97004FC14F /* MoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B70E11EB31B97004FC14F /* MoviePlayerController.m */; };
 		2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */; };
 		2FE5DB341EAF3DFC00085F6D /* YHHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */; };
 		2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */; };
@@ -82,6 +83,8 @@
 		2F583E451EA8C3D70048BF07 /* 莫文蔚 - 爱情(Live) - live.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "莫文蔚 - 爱情(Live) - live.lrc"; sourceTree = "<group>"; };
 		2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "王筝 - 越单纯越幸福.lrc"; sourceTree = "<group>"; };
 		2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "张学友 - 别问.lrc"; sourceTree = "<group>"; };
+		2F7B70E01EB31B97004FC14F /* MoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayerController.h; sourceTree = "<group>"; };
+		2F7B70E11EB31B97004FC14F /* MoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayerController.m; sourceTree = "<group>"; };
 		2F84ABC51EAF26530075BCDE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcTableView.h; sourceTree = "<group>"; };
 		2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHLrcTableView.m; sourceTree = "<group>"; };
@@ -171,13 +174,9 @@
 				2F583E221EA86AD30048BF07 /* AppDelegate.m */,
 				2FE5DB311EAF3DD800085F6D /* RootController */,
 				2F4219A91EB03F04009ED43C /* Category */,
-				2F583E241EA86AD30048BF07 /* ViewController.h */,
-				2F583E251EA86AD30048BF07 /* ViewController.m */,
-				2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */,
-				2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */,
-				2F5194761EA9E21D001BC65C /* YHHMusicTool.h */,
-				2F5194771EA9E21D001BC65C /* YHHMusicTool.m */,
-				2F5194711EA9AE15001BC65C /* Model */,
+				2F7B70DF1EB319FC004FC14F /* MusicPlayer */,
+				2F7B70E01EB31B97004FC14F /* MoviePlayerController.h */,
+				2F7B70E11EB31B97004FC14F /* MoviePlayerController.m */,
 				2F583E271EA86AD30048BF07 /* Main.storyboard */,
 				2F583E2A1EA86AD30048BF07 /* Assets.xcassets */,
 				2F583E2C1EA86AD30048BF07 /* LaunchScreen.storyboard */,
@@ -212,6 +211,20 @@
 				2F583E3A1EA86AD30048BF07 /* Info.plist */,
 			);
 			path = AudioPlayerTests;
+			sourceTree = "<group>";
+		};
+		2F7B70DF1EB319FC004FC14F /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2F583E241EA86AD30048BF07 /* ViewController.h */,
+				2F583E251EA86AD30048BF07 /* ViewController.m */,
+				2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */,
+				2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */,
+				2F5194761EA9E21D001BC65C /* YHHMusicTool.h */,
+				2F5194771EA9E21D001BC65C /* YHHMusicTool.m */,
+				2F5194711EA9AE15001BC65C /* Model */,
+			);
+			name = MusicPlayer;
 			sourceTree = "<group>";
 		};
 		2FE5DB311EAF3DD800085F6D /* RootController */ = {
@@ -345,6 +358,7 @@
 				2F583E261EA86AD30048BF07 /* ViewController.m in Sources */,
 				2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */,
 				2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */,
+				2F7B70E21EB31B97004FC14F /* MoviePlayerController.m in Sources */,
 				2F4219A71EB039BA009ED43C /* YHHTabBarController.m in Sources */,
 				2F4219A41EB030CF009ED43C /* YHHNavigationBar.m in Sources */,
 				2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */,
