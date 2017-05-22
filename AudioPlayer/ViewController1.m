@@ -7,8 +7,10 @@
 //
 
 #import "ViewController1.h"
+#import "Header.h"
 #import "MusicPlayerController.h"
 #import "MoviePlayerController.h"
+
 @interface ViewController1 ()
 
 @end
@@ -39,10 +41,13 @@
 }
 
 - (void)search {
-    NSString *str = @"001";
-    
-    NSLog(@"%ld,%d",str.integerValue, str.intValue);
-    
+//
+    [[YHHNetworkManager shareNetworkManager] requestWithUrl:@"http://shopcgi.qqmusic.qq.com/fcgi-bin/shopsearch.fcg?value=歌曲名&artist=周杰伦&type=qry_song&out=json&page_no=页码&page_record_num=单页" success:^(NSData *data) {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@", dictionary);
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)search1 {

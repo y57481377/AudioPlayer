@@ -33,6 +33,7 @@
 		2F802F831ECEC88E002CC9C1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */; };
 		2F802F871ECEC88E002CC9C1 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F802F861ECEC88E002CC9C1 /* TodayViewController.m */; };
 		2F802F8E1ECEC88F002CC9C1 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2F802F821ECEC88E002CC9C1 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2F96D67E1ED2E0980008CE8F /* YHHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F96D67D1ED2E0980008CE8F /* YHHNetworkManager.m */; };
 		2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */; };
 		2FE5DB341EAF3DFC00085F6D /* YHHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */; };
 		2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */; };
@@ -115,6 +116,8 @@
 		2F802F861ECEC88E002CC9C1 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		2F802F8B1ECEC88F002CC9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F84ABC51EAF26530075BCDE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		2F96D67C1ED2E0980008CE8F /* YHHNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHNetworkManager.h; sourceTree = "<group>"; };
+		2F96D67D1ED2E0980008CE8F /* YHHNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHNetworkManager.m; sourceTree = "<group>"; };
 		2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcTableView.h; sourceTree = "<group>"; };
 		2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHLrcTableView.m; sourceTree = "<group>"; };
 		2FE5DB321EAF3DFC00085F6D /* YHHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHNavigationController.h; sourceTree = "<group>"; };
@@ -211,7 +214,7 @@
 				2F583E211EA86AD30048BF07 /* AppDelegate.h */,
 				2F583E221EA86AD30048BF07 /* AppDelegate.m */,
 				2FE5DB311EAF3DD800085F6D /* RootController */,
-				2F4219A91EB03F04009ED43C /* Category */,
+				2F96D67B1ED2E01E0008CE8F /* Tool */,
 				2F7B70DF1EB319FC004FC14F /* MusicPlayer */,
 				2F7B70E01EB31B97004FC14F /* MoviePlayerController.h */,
 				2F7B70E11EB31B97004FC14F /* MoviePlayerController.m */,
@@ -281,6 +284,16 @@
 				2F802F8B1ECEC88F002CC9C1 /* Info.plist */,
 			);
 			path = Widget;
+			sourceTree = "<group>";
+		};
+		2F96D67B1ED2E01E0008CE8F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2F4219A91EB03F04009ED43C /* Category */,
+				2F96D67C1ED2E0980008CE8F /* YHHNetworkManager.h */,
+				2F96D67D1ED2E0980008CE8F /* YHHNetworkManager.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 		2FE5DB311EAF3DD800085F6D /* RootController */ = {
@@ -448,6 +461,7 @@
 				2F583E261EA86AD30048BF07 /* MusicPlayerController.m in Sources */,
 				2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */,
 				2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */,
+				2F96D67E1ED2E0980008CE8F /* YHHNetworkManager.m in Sources */,
 				2F7B70E21EB31B97004FC14F /* MoviePlayerController.m in Sources */,
 				2F4219A71EB039BA009ED43C /* YHHTabBarController.m in Sources */,
 				2F4219A41EB030CF009ED43C /* YHHNavigationBar.m in Sources */,

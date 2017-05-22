@@ -10,6 +10,8 @@
 #define Header_h
 #import "UIView+Extension.h"
 #import "UIButton+Extension.h"
+#import "YHHNetworkManager.h"
+
 
 /**** 屏幕宽高 ****/
 #define Screen_Width [[UIScreen mainScreen] bounds].size.width
