@@ -15,17 +15,17 @@
 }
 - (instancetype)init {
     if (self = [super initWithFrame:CGRectMake(0, 0, Screen_Width, 64.f)]) {
-        [self creatUI];
+//        [self creatUI];
     }
     return self;
 }
 
-- (void)creatUI {
-    
-    _shadow = [[UIView alloc] initWithFrame:CGRectMake(0, self.yhh_Height - 1, self.yhh_Width, 1)];
-    _shadow.backgroundColor = white_Text_Color;
-    [self addSubview:_shadow];
-}
+//- (void)creatUI {
+
+//    _shadow = [[UIView alloc] initWithFrame:CGRectMake(0, self.yhh_Height - 1, self.yhh_Width, 1)];
+//    _shadow.backgroundColor = [UIColor clearColor];
+//    [self addSubview:_shadow];
+//}
 
 // 导航栏返回按钮
 - (void)setBackItem:(UIButton *)backItem {
@@ -102,6 +102,10 @@
 }
 
 - (void)setShadowColor:(UIColor *)color {
+    if (!_shadow) {
+        _shadow = [[UIView alloc] initWithFrame:CGRectMake(0, self.yhh_Height - 1, self.yhh_Width, 1)];
+        [self addSubview:_shadow];
+    }
     _shadow.backgroundColor = color;
 }
 

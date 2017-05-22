@@ -6,7 +6,7 @@
 //  Copyright © 2017年 YHH. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MusicPlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "YHHMusicTool.h"
 #import "YHHMusicModel.h"
@@ -15,11 +15,10 @@
 #import "UIImage+Extention.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface ViewController ()<AVAudioPlayerDelegate>
+@interface MusicPlayerController ()<AVAudioPlayerDelegate>
 
-@property (strong, nonatomic) AVPlayer *player1;
-@property (strong, nonatomic) AVAudioPlayer *player;
-
+@property (strong, nonatomic) AVPlayer *player;
+@property (strong, nonatomic) AVPlayerItem *playerItem;
 @property (weak, nonatomic) IBOutlet UISlider *progress;
 
 @property (strong, nonatomic) NSTimer *timer;
@@ -38,22 +37,21 @@
 
 @end
 
-@implementation ViewController
+@implementation MusicPlayerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self setNavBarColor:[UIColor clearColor]];
+    [self setNavBarShadowColor:white_Text_Color];
     
     _music = [YHHMusicTool playingMusic];
     _player = [YHHMusicTool audioPlayerWithMusic:_music];
-    [self setupMusicUI];
+    _playerItem = _player.currentItem;
+    [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    [_playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    [self setupMusic];
 
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    
 }
 
 - (void)viewWillLayoutSubviews {
@@ -76,14 +74,16 @@
 }
 
 #pragma mark --- 初始化界面
-- (void)setupMusicUI {
+- (void)setupMusic {
+    
     //切换音乐需要初始化的数据
     _musicNameLab.text = _music.name;
     _singerLab.text = _music.singer;
-    _currentTimeLab.text = [self timeStrWithTimeInterval:_player.currentTime];
-    _durationLab.text = [self timeStrWithTimeInterval:_player.duration];
-    _progress.value = _player.currentTime / _player.duration;
-
+    
+    _playerItem = _player.currentItem;
+    _currentTimeLab.text = [self timeStrWithTimeInterval:CMTimeGetSeconds(_playerItem.currentTime)];
+    _durationLab.text = [self timeStrWithTimeInterval:CMTimeGetSeconds(_playerItem.duration)];
+    _progress.value = CMTimeGetSeconds(_playerItem.currentTime) / CMTimeGetSeconds(_playerItem.duration);
 }
 
 #pragma mark --- 初始化player
@@ -98,9 +98,9 @@
 }
 
 - (void)startPlayingMusic {
-    _player.delegate = self;
+//    _player.delegate = self;
     
-    [self setupMusicUI];
+    [self setupMusic];
     
     [self invalidateTimer];
     [self startTimer];
@@ -134,7 +134,6 @@
 
 - (IBAction)playNext:(UIButton *)sender {
     NSLog(@"下一首");
-    [_player stop];
 //    _player = nil;
     _player = [YHHMusicTool playNextMusic];
     _music = [YHHMusicTool playingMusic];
@@ -144,7 +143,7 @@
 
 - (IBAction)playBefore:(UIButton *)sender {
     NSLog(@"上一首");
-    [_player stop];
+//    [_player stop];
 //     = nil;
     _player = [YHHMusicTool playPreviousMusic];
     _music = [YHHMusicTool playingMusic];
@@ -153,7 +152,7 @@
 }
 
 - (IBAction)progressValueChange:(UISlider *)sender {
-    _currentTimeLab.text = [self timeStrWithTimeInterval:_player.duration * sender.value];
+    _currentTimeLab.text = [self timeStrWithTimeInterval:CMTimeGetSeconds(_playerItem.duration) * sender.value];
 }
 
 // 开始拖动进度条
@@ -164,8 +163,12 @@
 
 // 结束拖动进度条
 - (IBAction)progressTouchesEnd:(UISlider *)sender {
-    _player.currentTime = _player.duration *sender.value;
-    _currentTimeLab.text = [self timeStrWithTimeInterval:_player.currentTime];
+    
+    NSTimeInterval toTime = CMTimeGetSeconds(_playerItem.duration) * sender.value;
+//    CMTimeScale scale = _playerItem.currentTime.timescale;
+    CMTime time = CMTimeMakeWithSeconds(toTime, 1);
+    [_playerItem seekToTime:time];
+    _currentTimeLab.text = [self timeStrWithTimeInterval:CMTimeGetSeconds(time)];
     [self startTimer];
     NSLog(@"%f",sender.value);
 }
@@ -193,12 +196,12 @@
 
 - (void)refreshProgress {
     NSLog(@"刷新");
-    _currentTimeLab.text = [self timeStrWithTimeInterval:_player.currentTime];
-    _progress.value = _player.currentTime / _player.duration;
+    _currentTimeLab.text = [self timeStrWithTimeInterval:CMTimeGetSeconds(_playerItem.currentTime)];
+    _progress.value = CMTimeGetSeconds(_playerItem.currentTime) / CMTimeGetSeconds(_playerItem.duration);
 }
 
 - (void)refreshLrc {
-    _lrcView.currentTime = _player.currentTime;
+    _lrcView.currentTime = CMTimeGetSeconds(_playerItem.currentTime);
 }
 
 // 转换timeInterval 成00:00格式字符串
@@ -209,6 +212,27 @@
     return timeStr;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"status"]) {
+        AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
+        if (status == AVPlayerStatusReadyToPlay) {
+            
+        }
+    }else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        NSTimeInterval loadedTime = [self loadedTime];
+        
+    }
+}
+
+- (NSTimeInterval)loadedTime {
+    NSArray *arr = _playerItem.loadedTimeRanges;
+    CMTimeRange timeRange = [arr.firstObject CMTimeRangeValue];
+    
+    double startSecond = CMTimeGetSeconds(timeRange.start);
+    double durationSecond = CMTimeGetSeconds(timeRange.duration);
+    return startSecond + durationSecond;
+}
+
 - (void)setupLockedView {
     YHHMusicModel *playingMusic = [YHHMusicTool playingMusic];
     
@@ -216,8 +240,8 @@
     
     [dic setObject:playingMusic.name forKey:MPMediaItemPropertyTitle];
     [dic setObject:playingMusic.singer forKey:MPMediaItemPropertyArtist];
-    [dic setObject:[NSNumber numberWithDouble:_player.currentTime] forKey:MPMediaItemPropertyPlaybackDuration];
-    [dic setObject:[NSNumber numberWithDouble:_player.duration] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    [dic setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(_playerItem.currentTime)] forKey:MPMediaItemPropertyPlaybackDuration];
+    [dic setObject:[NSNumber numberWithDouble:CMTimeGetSeconds(_playerItem.duration)] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
     
     [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = dic;
     
@@ -231,6 +255,6 @@
         NSLog(@"%ld",event.subtype);
         
     }
-    
 }
+
 @end

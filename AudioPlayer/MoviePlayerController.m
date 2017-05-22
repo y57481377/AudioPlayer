@@ -29,7 +29,7 @@
     [_playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     
     _player = [AVPlayer playerWithPlayerItem:_playerItem];
-    [_player addObserver:self forKeyPath:@"status" options:(NSKeyValueObservingOptionNew) context:nil]; // 观察status属性]
+//    [_player addObserver:self forKeyPath:@"status" options:(NSKeyValueObservingOptionNew) context:nil]; // 观察status属性]
 
     AVPlayerLayer *playLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
     
@@ -52,11 +52,13 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [_player pause];
     NSLog(@"即将消失");
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    _player = nil;
     NSLog(@"消失");
 }
 
@@ -64,24 +66,41 @@
     NSLog(@"播放");
     [_player play];
 }
-
+ 
 - (void)stop {
     NSLog(@"停止");
-    NSLog(@"item:%d,  player:%ld",_playerItem.playbackBufferEmpty, _player.status);
+    NSLog(@"empty:%d, full:%d ----- player:%ld",_playerItem.isPlaybackBufferEmpty, _playerItem.isPlaybackBufferFull, _player.status);
+    [_player replaceCurrentItemWithPlayerItem:_playerItem];
 }
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    NSLog(@"111");
     if ([keyPath isEqualToString:@"status"]) {
         NSLog(@"%@",[object class]);
         NSLog(@"%@",change);
+        
         AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
         if (status == AVPlayerStatusReadyToPlay) {
-            [_player play];
         }
     }else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
-        NSLog(@"缓冲");
+        NSTimeInterval loadedTime = [self loadedTime];
         
+        NSLog(@"%lf",loadedTime);
+        if (_playerItem.isPlaybackBufferFull) {
+            NSLog(@"缓冲完成，继续播放");
+            [_player play];
+        }
     }
+}
+
+
+// 已经缓冲的区域
+- (NSTimeInterval)loadedTime {
+    NSArray *arr = _playerItem.loadedTimeRanges;
+    CMTimeRange timeRange = [arr.firstObject CMTimeRangeValue];
+    
+    double startSecond = CMTimeGetSeconds(timeRange.start);
+    double durationSecond = CMTimeGetSeconds(timeRange.duration);
+    return startSecond + durationSecond;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,14 +108,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    [_player pause];
-//}
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_player play];
+}
 
 -(void)dealloc {
     [_playerItem removeObserver:self forKeyPath:@"status"];
     [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-    [_player removeObserver:self forKeyPath:@"status"];
+//    [_player removeObserver:self forKeyPath:@"status"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

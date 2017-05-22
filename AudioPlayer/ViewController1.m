@@ -7,7 +7,7 @@
 //
 
 #import "ViewController1.h"
-#import "ViewController.h"
+#import "MusicPlayerController.h"
 #import "MoviePlayerController.h"
 @interface ViewController1 ()
 
@@ -33,10 +33,15 @@
     left2.frame = CGRectMake(0, 0, 50, 50);
     [self setNavBarLeftItems:@[left1,left2,left]];
     
+    UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(20, 100, 280, 30)];
+    text.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:text];
 }
 
 - (void)search {
-    NSLog(@"搜索");
+    NSString *str = @"001";
+    
+    NSLog(@"%ld,%d",str.integerValue, str.intValue);
     
 }
 
@@ -45,13 +50,15 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated {
     self.hidesBottomBarWhenPushed = YES;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    self.hidesBottomBarWhenPushed = NO;
-}
+//- (void)viewDidDisappear:(BOOL)animated {
+//    self.hidesBottomBarWhenPushed = NO;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

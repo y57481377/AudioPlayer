@@ -13,10 +13,10 @@
 @interface YHHMusicTool : NSObject
 + (YHHMusicModel *)playingMusic;
 
-+ (AVAudioPlayer *)audioPlayerWithMusic:(YHHMusicModel *)music;
++ (AVPlayer *)audioPlayerWithMusic:(YHHMusicModel *)music;
 
-+ (AVAudioPlayer *)playPreviousMusic;
++ (AVPlayer *)playPreviousMusic;
 
-+ (AVAudioPlayer *)playNextMusic;
++ (AVPlayer *)playNextMusic;
 
 @end

@@ -69,4 +69,8 @@
     _navBar.rightItems = items;
 }
 
+- (void)dealloc {
+    NSLog(@"%s-----delloc", object_getClassName(self));
+}
+
 @end

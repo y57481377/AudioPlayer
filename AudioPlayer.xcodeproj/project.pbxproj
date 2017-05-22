@@ -20,7 +20,7 @@
 		2F5194781EA9E21D001BC65C /* YHHMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5194771EA9E21D001BC65C /* YHHMusicTool.m */; };
 		2F583E201EA86AD20048BF07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F583E1F1EA86AD20048BF07 /* main.m */; };
 		2F583E231EA86AD30048BF07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F583E221EA86AD30048BF07 /* AppDelegate.m */; };
-		2F583E261EA86AD30048BF07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F583E251EA86AD30048BF07 /* ViewController.m */; };
+		2F583E261EA86AD30048BF07 /* MusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F583E251EA86AD30048BF07 /* MusicPlayerController.m */; };
 		2F583E291EA86AD30048BF07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E271EA86AD30048BF07 /* Main.storyboard */; };
 		2F583E2B1EA86AD30048BF07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E2A1EA86AD30048BF07 /* Assets.xcassets */; };
 		2F583E2E1EA86AD30048BF07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E2C1EA86AD30048BF07 /* LaunchScreen.storyboard */; };
@@ -30,6 +30,9 @@
 		2F583E481EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E461EA8C3D70048BF07 /* 王筝 - 越单纯越幸福.lrc */; };
 		2F583E4B1EA8C4120048BF07 /* 张学友 - 别问.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */; };
 		2F7B70E21EB31B97004FC14F /* MoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B70E11EB31B97004FC14F /* MoviePlayerController.m */; };
+		2F802F831ECEC88E002CC9C1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */; };
+		2F802F871ECEC88E002CC9C1 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F802F861ECEC88E002CC9C1 /* TodayViewController.m */; };
+		2F802F8E1ECEC88F002CC9C1 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2F802F821ECEC88E002CC9C1 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */; };
 		2FE5DB341EAF3DFC00085F6D /* YHHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */; };
 		2FE6BCA21EAA69B5003FC9FD /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE6BCA11EAA69B5003FC9FD /* UIImage+Extention.m */; };
@@ -44,7 +47,28 @@
 			remoteGlobalIDString = 2F583E1A1EA86AD20048BF07;
 			remoteInfo = AudioPlayer;
 		};
+		2F802F8C1ECEC88F002CC9C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F583E131EA86AD20048BF07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F802F811ECEC88E002CC9C1;
+			remoteInfo = Widget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2F802F7D1ECEC70D002CC9C1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2F802F8E1ECEC88F002CC9C1 /* Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F42199E1EB0303A009ED43C /* YHHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHRootViewController.h; sourceTree = "<group>"; };
@@ -70,8 +94,8 @@
 		2F583E1F1EA86AD20048BF07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F583E211EA86AD30048BF07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2F583E221EA86AD30048BF07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2F583E241EA86AD30048BF07 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2F583E251EA86AD30048BF07 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2F583E241EA86AD30048BF07 /* MusicPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicPlayerController.h; sourceTree = "<group>"; };
+		2F583E251EA86AD30048BF07 /* MusicPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerController.m; sourceTree = "<group>"; };
 		2F583E281EA86AD30048BF07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F583E2A1EA86AD30048BF07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F583E2D1EA86AD30048BF07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +109,11 @@
 		2F583E491EA8C4120048BF07 /* 张学友 - 别问.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "张学友 - 别问.lrc"; sourceTree = "<group>"; };
 		2F7B70E01EB31B97004FC14F /* MoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayerController.h; sourceTree = "<group>"; };
 		2F7B70E11EB31B97004FC14F /* MoviePlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayerController.m; sourceTree = "<group>"; };
+		2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2F802F821ECEC88E002CC9C1 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F802F851ECEC88E002CC9C1 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		2F802F861ECEC88E002CC9C1 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		2F802F8B1ECEC88F002CC9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F84ABC51EAF26530075BCDE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcTableView.h; sourceTree = "<group>"; };
 		2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHLrcTableView.m; sourceTree = "<group>"; };
@@ -111,14 +140,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F802F7F1ECEC88E002CC9C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F802F831ECEC88E002CC9C1 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2F4219A11EB030AA009ED43C /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				2F42199E1EB0303A009ED43C /* YHHRootViewController.h */,
-				2F42199F1EB0303A009ED43C /* YHHRootViewController.m */,
 				2F4219A21EB030CF009ED43C /* YHHNavigationBar.h */,
 				2F4219A31EB030CF009ED43C /* YHHNavigationBar.m */,
 			);
@@ -154,6 +189,8 @@
 			children = (
 				2F583E1D1EA86AD20048BF07 /* AudioPlayer */,
 				2F583E371EA86AD30048BF07 /* AudioPlayerTests */,
+				2F802F841ECEC88E002CC9C1 /* Widget */,
+				2F802F6C1ECEC70D002CC9C1 /* Frameworks */,
 				2F583E1C1EA86AD20048BF07 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,6 +200,7 @@
 			children = (
 				2F583E1B1EA86AD20048BF07 /* AudioPlayer.app */,
 				2F583E341EA86AD30048BF07 /* AudioPlayerTests.xctest */,
+				2F802F821ECEC88E002CC9C1 /* Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,8 +254,8 @@
 		2F7B70DF1EB319FC004FC14F /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				2F583E241EA86AD30048BF07 /* ViewController.h */,
-				2F583E251EA86AD30048BF07 /* ViewController.m */,
+				2F583E241EA86AD30048BF07 /* MusicPlayerController.h */,
+				2F583E251EA86AD30048BF07 /* MusicPlayerController.m */,
 				2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */,
 				2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */,
 				2F5194761EA9E21D001BC65C /* YHHMusicTool.h */,
@@ -227,6 +265,24 @@
 			name = MusicPlayer;
 			sourceTree = "<group>";
 		};
+		2F802F6C1ECEC70D002CC9C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F802F841ECEC88E002CC9C1 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				2F802F851ECEC88E002CC9C1 /* TodayViewController.h */,
+				2F802F861ECEC88E002CC9C1 /* TodayViewController.m */,
+				2F802F8B1ECEC88F002CC9C1 /* Info.plist */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		2FE5DB311EAF3DD800085F6D /* RootController */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +290,8 @@
 				2FE5DB331EAF3DFC00085F6D /* YHHNavigationController.m */,
 				2F4219A51EB039BA009ED43C /* YHHTabBarController.h */,
 				2F4219A61EB039BA009ED43C /* YHHTabBarController.m */,
+				2F42199E1EB0303A009ED43C /* YHHRootViewController.h */,
+				2F42199F1EB0303A009ED43C /* YHHRootViewController.m */,
 				2F4219A11EB030AA009ED43C /* NavigationBar */,
 			);
 			name = RootController;
@@ -249,10 +307,12 @@
 				2F583E171EA86AD20048BF07 /* Sources */,
 				2F583E181EA86AD20048BF07 /* Frameworks */,
 				2F583E191EA86AD20048BF07 /* Resources */,
+				2F802F7D1ECEC70D002CC9C1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2F802F8D1ECEC88F002CC9C1 /* PBXTargetDependency */,
 			);
 			name = AudioPlayer;
 			productName = AudioPlayer;
@@ -276,6 +336,23 @@
 			productName = AudioPlayerTests;
 			productReference = 2F583E341EA86AD30048BF07 /* AudioPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F802F811ECEC88E002CC9C1 /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F802F8F1ECEC88F002CC9C1 /* Build configuration list for PBXNativeTarget "Widget" */;
+			buildPhases = (
+				2F802F7E1ECEC88E002CC9C1 /* Sources */,
+				2F802F7F1ECEC88E002CC9C1 /* Frameworks */,
+				2F802F801ECEC88E002CC9C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widget;
+			productName = Widget;
+			productReference = 2F802F821ECEC88E002CC9C1 /* Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -302,6 +379,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2F583E1A1EA86AD20048BF07;
 					};
+					2F802F811ECEC88E002CC9C1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3XL4J3LLT8;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 2F583E161EA86AD20048BF07 /* Build configuration list for PBXProject "AudioPlayer" */;
@@ -319,6 +401,7 @@
 			targets = (
 				2F583E1A1EA86AD20048BF07 /* AudioPlayer */,
 				2F583E331EA86AD30048BF07 /* AudioPlayerTests */,
+				2F802F811ECEC88E002CC9C1 /* Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -348,6 +431,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F802F801ECEC88E002CC9C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -355,7 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F583E261EA86AD30048BF07 /* ViewController.m in Sources */,
+				2F583E261EA86AD30048BF07 /* MusicPlayerController.m in Sources */,
 				2F5194701EA9ADFE001BC65C /* YHHLrcModel.m in Sources */,
 				2F51946D1EA9AC64001BC65C /* YHHMusicModel.m in Sources */,
 				2F7B70E21EB31B97004FC14F /* MoviePlayerController.m in Sources */,
@@ -382,6 +472,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F802F7E1ECEC88E002CC9C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F802F871ECEC88E002CC9C1 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -389,6 +487,11 @@
 			isa = PBXTargetDependency;
 			target = 2F583E1A1EA86AD20048BF07 /* AudioPlayer */;
 			targetProxy = 2F583E351EA86AD30048BF07 /* PBXContainerItemProxy */;
+		};
+		2F802F8D1ECEC88F002CC9C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F802F811ECEC88E002CC9C1 /* Widget */;
+			targetProxy = 2F802F8C1ECEC88F002CC9C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -562,6 +665,38 @@
 			};
 			name = Release;
 		};
+		2F802F901ECEC88F002CC9C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3XL4J3LLT8;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2F802F911ECEC88F002CC9C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3XL4J3LLT8;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,6 +723,15 @@
 			buildConfigurations = (
 				2F583E411EA86AD30048BF07 /* Debug */,
 				2F583E421EA86AD30048BF07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F802F8F1ECEC88F002CC9C1 /* Build configuration list for PBXNativeTarget "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F802F901ECEC88F002CC9C1 /* Debug */,
+				2F802F911ECEC88F002CC9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

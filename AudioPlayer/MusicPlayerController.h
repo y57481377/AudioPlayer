@@ -8,7 +8,7 @@
 
 #import "YHHRootViewController.h"
 
-@interface ViewController : YHHRootViewController
+@interface MusicPlayerController : YHHRootViewController
 
 
 @end

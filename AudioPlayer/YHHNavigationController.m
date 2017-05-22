@@ -25,17 +25,13 @@
     [self.navigationBar setHidden:YES];
 }
 
+//- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//    
+//}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-
-- (void)navigationLeftBack {
-    [self popViewControllerAnimated:YES];
-}
-
-//- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
-
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

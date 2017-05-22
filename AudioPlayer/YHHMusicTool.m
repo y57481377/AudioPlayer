@@ -13,7 +13,7 @@
 
 static NSArray *_musicModels;
 static YHHMusicModel *_music;
-static AVAudioPlayer *_player;
+static AVPlayer *_player;
 
 + (void)initialize {
     [super initialize];
@@ -25,74 +25,51 @@ static AVAudioPlayer *_player;
     }
 }
 
-+ (AVAudioPlayer *)audioPlayerWithMusic:(YHHMusicModel *)music {
++ (AVPlayer *)audioPlayerWithMusic:(YHHMusicModel *)music {
     // 获取音乐文件路径
-    
     NSURL *url = [[NSBundle mainBundle] URLForResource:music.fileName withExtension:nil];
     NSLog(@"%@",url);
-    NSError *error = nil;
     
-    // 如果已经有在播放的音乐，则不创建播放器
-    if (_player) return _player;
+    // 如果当前音乐已经在播放，则不创建播放器Item
+    if (_player && [[self playingMusic].fileName isEqualToString:music.fileName]) return _player;
     
-    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    // 设置播放循环次数
-    _player.numberOfLoops = 0;
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
     
-    if (error) {
-        NSLog(@"----%@",error.localizedDescription);
-        return nil;
-    }
-    [_player prepareToPlay];
+    _player = [AVPlayer playerWithPlayerItem:playerItem];
     
     return _player;
 }
 
-+ (AVAudioPlayer *)playNextMusic {
++ (AVPlayer *)playNextMusic {
     YHHMusicModel *music = [self nextMusic];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:_music.fileName withExtension:nil];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:music.fileName withExtension:nil];
     NSLog(@"%@",url);
-    NSError *error = nil;
+//    NSError *error = nil;
     
     // 如果已经有在播放的音乐，则不创建播放器
-    if (_player)  [_player stop];
     
-    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    // 设置播放循环次数
-    _player.numberOfLoops = 0;
-    
-    if (error) {
-        NSLog(@"----%@",error.localizedDescription);
-        return nil;
-    }
-    [_player prepareToPlay];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
+
+    [_player replaceCurrentItemWithPlayerItem:playerItem];
     
     return _player;
-
 }
 
-+ (AVAudioPlayer *)playPreviousMusic {
++ (AVPlayer *)playPreviousMusic {
     YHHMusicModel *music = [self previousMusic];
     NSURL *url = [[NSBundle mainBundle] URLForResource:music.fileName withExtension:nil];
     NSLog(@"%@",url);
-    NSError *error = nil;
+//    NSError *error = nil;
     
     // 如果已经有在播放的音乐，则不创建播放器
-    if (_player)  [_player stop];
+    if (_player)  [_player pause];
     
-    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    // 设置播放循环次数
-    _player.numberOfLoops = 0;
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
     
-    if (error) {
-        NSLog(@"----%@",error.localizedDescription);
-        return nil;
-    }
-    [_player prepareToPlay];
+    [_player replaceCurrentItemWithPlayerItem:playerItem];
     
     return _player;
 }
-
 
 
 + (YHHMusicModel *)previousMusic {
