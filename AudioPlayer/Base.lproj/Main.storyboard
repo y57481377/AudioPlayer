@@ -13,25 +13,26 @@
         <!--Tab Bar Controller-->
         <scene sceneID="h0x-Sv-7or">
             <objects>
-                <tabBarController id="MdQ-ZR-S7d" sceneMemberID="viewController">
+                <tabBarController id="MdQ-ZR-S7d" customClass="YHHTabBarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="h7I-mn-Zda">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cXr-Fk-Pnd" kind="relationship" relationship="viewControllers" id="PdJ-Wx-mDy"/>
+                        <segue destination="cXr-Fk-Pnd" kind="relationship" relationship="viewControllers" id="qFr-PR-O2a"/>
+                        <segue destination="BXR-lR-12I" kind="relationship" relationship="viewControllers" id="qs6-0L-UVD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUP-hn-bb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1778" y="-510"/>
+            <point key="canvasLocation" x="-2201" y="-98"/>
         </scene>
-        <!--Item-->
+        <!--vc1-->
         <scene sceneID="kdz-QF-8UF">
             <objects>
                 <navigationController id="cXr-Fk-Pnd" customClass="YHHNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EK0-Lj-2Ip"/>
+                    <tabBarItem key="tabBarItem" title="vc1" image="play" selectedImage="back" id="EK0-Lj-2Ip"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3dm-eI-zHi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -296,8 +297,28 @@
             </objects>
             <point key="canvasLocation" x="-186" y="-510"/>
         </scene>
+        <!--发现-->
+        <scene sceneID="1Nc-uH-BJA">
+            <objects>
+                <viewController id="BXR-lR-12I" customClass="YHHMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w9N-n6-jIC"/>
+                        <viewControllerLayoutGuide type="bottom" id="pwO-8y-2A5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nue-dy-C7w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="发现" id="4O7-3e-LUZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYe-4D-JL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-986" y="131"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="back" width="16" height="22"/>
         <image name="play" width="30" height="30"/>
         <image name="playBefore" width="30" height="30"/>
         <image name="playNext" width="30" height="30"/>

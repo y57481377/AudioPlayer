@@ -64,8 +64,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self invalidateTimer];
-    
 }
 
 - (void)didReceiveMemoryWarning {

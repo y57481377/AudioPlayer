@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^success)(NSData *data);
+typedef void(^success)(id responseObject);
 typedef void(^failure)(NSError *error);
 
 @interface YHHNetworkManager : NSObject
 
 + (instancetype)shareNetworkManager;
 
-- (void)requestWithUrl:(NSString *)strUrl success:(success)successBlock failure:(failure)failureBlock;
+- (void)GET:(NSString *)urlstr params:(NSDictionary *)params success:(success)successBlock failure:(failure)failureBlock;
 
 @end

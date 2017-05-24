@@ -8,6 +8,7 @@
 
 #import "ViewController1.h"
 #import "Header.h"
+#import "YHHMainViewController.h"
 #import "MusicPlayerController.h"
 #import "MoviePlayerController.h"
 
@@ -25,13 +26,13 @@
     
     // 设置导航栏按钮
     [self setNavBarTitle:@"第一页"];
-    UIButton *left = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search)];
+    UIButton *left = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search1)];
     left.frame = CGRectMake(0, 0, 50, 50);
     [self setNavBarLeftItem:left];
     
-    UIButton *left1 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search)];
+    UIButton *left1 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search2)];
     left1.frame = CGRectMake(0, 0, 50, 50);
-    UIButton *left2 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search1)];
+    UIButton *left2 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search3)];
     left2.frame = CGRectMake(0, 0, 50, 50);
     [self setNavBarLeftItems:@[left1,left2,left]];
     
@@ -40,17 +41,29 @@
     [self.view addSubview:text];
 }
 
-- (void)search {
-//
-    [[YHHNetworkManager shareNetworkManager] requestWithUrl:@"http://shopcgi.qqmusic.qq.com/fcgi-bin/shopsearch.fcg?value=歌曲名&artist=周杰伦&type=qry_song&out=json&page_no=页码&page_record_num=单页" success:^(NSData *data) {
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@", dictionary);
+- (void)search1 {
+
+    NSDictionary *body = @{ @"q" : @"vitas",
+                            @"tag" : @"",
+                            @"start" : @(0),
+                            @"count" : @(10)
+                            };
+    NSString *search = @"https://api.douban.com/v2/music/search";
+//    NSString *top250 = @"https://api.douban.com/v2/movie/top250";
+    
+    [[YHHNetworkManager shareNetworkManager] GET:search params:body success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }
 
-- (void)search1 {
+- (void)search2 {
+    YHHMainViewController *vc = [[YHHMainViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)search3 {
     MoviePlayerController *vc = [[MoviePlayerController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -58,7 +71,7 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.hidesBottomBarWhenPushed = YES;
+//    self.hidesBottomBarWhenPushed = YES;
 }
 
 //- (void)viewDidDisappear:(BOOL)animated {

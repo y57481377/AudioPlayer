@@ -7,6 +7,7 @@
 //
 
 #import "YHHNetworkManager.h"
+#import "AFNetworking.h"
 
 @implementation YHHNetworkManager
 
@@ -19,16 +20,17 @@
     return _manager;
 }
 
-- (void)requestWithUrl:(NSString *)strUrl success:(success)successBlock failure:(failure)failureBlock {
-    NSURL *url = [NSURL URLWithString:strUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+- (void)GET:(NSString *)urlstr params:(NSDictionary *)params success:(success)successBlock failure:(failure)failureBlock {
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    queue.maxConcurrentOperationCount = 3;
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        if (response) successBlock(data);
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    [manager GET:urlstr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+        successBlock(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        if (connectionError) failureBlock(connectionError);
+        failureBlock(error);
     }];
 }
+
 @end

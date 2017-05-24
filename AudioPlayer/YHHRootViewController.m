@@ -28,6 +28,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+// 把_navBar加在最顶层
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [_navBar removeFromSuperview];
+    [self.view addSubview:_navBar];
+}
+
 // 设置返回按钮
 - (void)setBackItem {
     if (self.navigationController.viewControllers.count > 1) {
