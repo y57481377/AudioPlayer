@@ -10,6 +10,8 @@
 
 @interface UIImage (Extention)
 
+- (UIImage *)circleImage;
+
 + (UIImage *)yhh_imageWithColor:(UIColor *)color;
 
 @end

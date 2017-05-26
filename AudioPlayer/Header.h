@@ -18,6 +18,7 @@
 
 #import "UIView+Extension.h"
 #import "UIButton+Extension.h"
+#import "UIImage+Extention.h"
 #import "YHHNetworkManager.h"
 
 

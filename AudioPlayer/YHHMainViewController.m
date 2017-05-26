@@ -29,16 +29,19 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.tableFooterView = [[UIView alloc] init];
-    
+    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
+    _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 49, 0);
+    _tableView.contentOffset = CGPointMake(0, -64);
     [_tableView registerClass:[YHHDicoverCell class] forCellReuseIdentifier:@"~"];
     [self.view addSubview:_tableView];
     
-    [YHHDiscoverData getDataCompletedHandler:^(NSArray *models, NSError *error) {
-        if (error) return;
-        
-        _models = (NSMutableArray *)models;
-        [_tableView reloadData];
-    }];
+//    [YHHDiscoverData getDataCompletedHandler:^(NSArray *models, NSError *error) {
+//        if (error) return;
+//        
+//        _models = (NSMutableArray *)models;
+//        [_tableView reloadData];
+//    }];
+    NSLog(@"%f", _tableView.contentOffset.y);
 }
 
 #pragma mark --- Table DataSource /Delegate
@@ -47,7 +50,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _models.count;
+//    return _models.count;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,5 +64,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%f", _tableView.contentOffset.y);
 }
 @end

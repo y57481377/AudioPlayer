@@ -20,6 +20,28 @@
     [self addSubview: separator];
 }
 
+- (void)setCornerRadius:(CGFloat)radius {
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:radius];
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = path.CGPath;
+    
+    self.layer.mask = maskLayer;
+}
+
+- (void)circle {
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = path.CGPath;
+    
+    self.layer.mask = maskLayer;
+    
+    self.layer.cornerRadius = self.yhh_Width/2;
+    self.layer.masksToBounds = YES;
+}
+
 - (CGFloat)yhh_Width {
     return self.frame.size.width;
 }
@@ -31,6 +53,14 @@
 }
 - (CGFloat)yhh_Y {
     return self.frame.origin.y;
+}
+
+- (CGFloat)yhh_MaxX {
+    return CGRectGetMaxX(self.frame);
+}
+
+- (CGFloat)yhh_MaxY {
+    return CGRectGetMaxY(self.frame);
 }
 
 - (void)setYhh_Width:(CGFloat)width {

@@ -11,7 +11,7 @@
 #import "YHHMainViewController.h"
 #import "MusicPlayerController.h"
 #import "MoviePlayerController.h"
-
+#import "YHHCircleListController.h"
 @interface ViewController1 ()
 
 @end
@@ -59,7 +59,7 @@
 }
 
 - (void)search2 {
-    YHHMainViewController *vc = [[YHHMainViewController alloc] init];
+    YHHCircleListController *vc = [[YHHCircleListController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

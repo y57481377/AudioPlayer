@@ -20,14 +20,14 @@ static NSInteger currentPage = 0;
 + (void)getDataCompletedHandler:(void(^)(NSArray *models ,NSError *error))completedHandler {
     
     NSMutableArray *models = [NSMutableArray array];
-    NSDictionary *body = @{ @"q" : @"vitas",
+    NSDictionary *param = @{ @"q" : @"vitas",
                             @"tag" : @"",
                             @"start" : @(currentPage),
-                            @"count" : @(10)
+                            @"count" : @(20)
                             };
     NSString *search = @"https://api.douban.com/v2/music/search";
     
-    [[YHHNetworkManager shareNetworkManager] GET:search params:body success:^(id responseObject) {
+    [[YHHNetworkManager shareNetworkManager] GET:search params:param success:^(id responseObject) {
         
         NSArray *dataArr = [responseObject objectForKey:@"musics"];
         for (NSDictionary *dic in dataArr) {

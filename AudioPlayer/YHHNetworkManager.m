@@ -33,4 +33,17 @@
     }];
 }
 
+- (void)POST:(NSString *)urlstr params:(NSDictionary *)params success:(success)successBlock failure:(failure)failureBlock {
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    [manager POST:urlstr parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        successBlock(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        failureBlock(error);
+    }];
+}
+
+
 @end
