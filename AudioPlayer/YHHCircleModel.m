@@ -39,6 +39,21 @@
     return self;
 }
 
+- (CGFloat)cellHeight {
+    if (!_cellHeight) {
+        CGSize s = CGSizeMake(Screen_Width - Auto_X(24), MAXFLOAT);
+        CGSize strSize = stringEstimateSize(self.info, s, 14);
+        
+        CGFloat imageH;
+        if (_uploadFiles.count > 0) imageH = Auto_Y(150);
+        else                        imageH = 0;
+
+        _cellHeight = strSize.height + imageH + Auto_Y(50);
+    }
+    return _cellHeight;
+}
+
+
 + (void)getDataCompletedHandler:(void(^)(NSArray *models ,NSError *error))completedHandler {
     
     NSMutableArray *models = [NSMutableArray array];

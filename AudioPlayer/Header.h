@@ -51,6 +51,7 @@ autoFont = [UIFont systemFontOfSize:size];\
 autoFont = [UIFont systemFontOfSize:size + 1.5];\
 }autoFont;}) //字体的大小 6s 为标准。
 
+#define stringEstimateSize(string, size1, font) [string boundingRectWithSize:size1 options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : AutoFont(font)} context:nil].size
 
 /**** 全局颜色 ****/
 #define yhh_Color(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/1.0]

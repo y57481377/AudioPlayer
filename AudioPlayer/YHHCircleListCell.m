@@ -61,6 +61,7 @@
     
     _contentLable.frame = CGRectMake(Auto_X(12), _headerImage.yhh_MaxY + 5, Screen_Width - Auto_X(24), 1);
     _contentLable.text = model.info;
+    _contentLable.font = AutoFont(14);
     [_contentLable sizeToFit];
     
     _imageCount = model.uploadFiles.count;

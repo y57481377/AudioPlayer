@@ -28,8 +28,10 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.tableFooterView = [[UIView alloc] init];
-    
-    [_tableView registerClass:[YHHCircleListCell class] forCellReuseIdentifier:@"~"];
+    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
+    _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 49, 0);
+    _tableView.contentOffset = CGPointMake(0, -64);
+    [_tableView registerClass:[YHHCircleListCell class] forCellReuseIdentifier:@"circleCell"];
     [self.view addSubview:_tableView];
     
     [YHHCircleModel getDataCompletedHandler:^(NSArray *models, NSError *error) {
@@ -42,7 +44,7 @@
 
 #pragma mark --- Table DataSource /Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return Auto_Y(180);
+    return [_models[indexPath.row] cellHeight];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -51,7 +53,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YHHCircleListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"~"];
+    YHHCircleListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"circleCell"];
     
 //    cell.count = arc4random_uniform(4);
     cell.model = _models[indexPath.row];
