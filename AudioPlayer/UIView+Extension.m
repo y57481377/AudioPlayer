@@ -22,24 +22,32 @@
 
 - (void)setCornerRadius:(CGFloat)radius {
     
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:radius];
-    
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.path = path.CGPath;
-    
-    self.layer.mask = maskLayer;
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:radius];
+//    
+//    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+//    maskLayer.path = path.CGPath;
+//    
+//    self.layer.mask = maskLayer;
 }
 
 - (void)circle {
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
     
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.path = path.CGPath;
+    if (![self isKindOfClass:[UIImageView class]]) return;
     
-    self.layer.mask = maskLayer;
+    UIImageView *imagev = (UIImageView *)self;
+    CGFloat len = MIN(self.yhh_Width, self.yhh_Height) / 2;
     
-    self.layer.cornerRadius = self.yhh_Width/2;
-    self.layer.masksToBounds = YES;
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextAddArc(context, self.yhh_Width / 2, self.yhh_Height / 2, len, 0, M_PI * 2, 0);
+    CGContextClip(context);
+    [imagev.image drawInRect:self.bounds];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    imagev.image = image;
 }
 
 - (CGFloat)yhh_Width {

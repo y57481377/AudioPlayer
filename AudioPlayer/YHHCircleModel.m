@@ -41,14 +41,22 @@
 
 - (CGFloat)cellHeight {
     if (!_cellHeight) {
+        // 计算文字高度
         CGSize s = CGSizeMake(Screen_Width - Auto_X(24), MAXFLOAT);
         CGSize strSize = stringEstimateSize(self.info, s, 14);
         
+        // 如果有图片，赋上图片高度
         CGFloat imageH;
-        if (_uploadFiles.count > 0) imageH = Auto_Y(150);
+        if (_uploadFiles.count > 0) imageH = Auto_Y(140);
         else                        imageH = 0;
 
-        _cellHeight = strSize.height + imageH + Auto_Y(50);
+        CGFloat likeH;
+        if (_userArr.count > 0) likeH = Auto_Y(30);
+        else                    likeH = 0;
+    
+        
+        // 加上cell的抬头高度、间隔高度
+        _cellHeight = strSize.height + imageH + likeH + Auto_Y(90);
     }
     return _cellHeight;
 }
@@ -59,7 +67,7 @@
     NSMutableArray *models = [NSMutableArray array];
     NSDictionary *param = @{
         @"circleTypeId" : @"2937d84cc6004e22a9d8a77c77049a48",
-        @"handPick" : @"-1",    /* 1为精选数据，-1为最新数据*/
+        @"handPick" : @"1",    /* 1为精选数据，-1为最新数据*/
         @"pageIndex" : @"1",
         @"userId" : @""//582
     };

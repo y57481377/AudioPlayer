@@ -56,9 +56,13 @@
     YHHCircleListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"circleCell"];
     
 //    cell.count = arc4random_uniform(4);
-    cell.model = _models[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    ((YHHCircleListCell *)cell).model = _models[indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

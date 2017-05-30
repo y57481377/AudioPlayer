@@ -37,9 +37,6 @@
 		2F7EC6741ED3FFF600BF35CF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EC66D1ED3FFF600BF35CF /* AFURLResponseSerialization.m */; };
 		2F7EC6751ED3FFF600BF35CF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EC66F1ED3FFF600BF35CF /* AFURLSessionManager.m */; };
 		2F7EC6781ED40D8900BF35CF /* YHHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EC6771ED40D8900BF35CF /* YHHMainViewController.m */; };
-		2F802F831ECEC88E002CC9C1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */; };
-		2F802F871ECEC88E002CC9C1 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F802F861ECEC88E002CC9C1 /* TodayViewController.m */; };
-		2F802F8E1ECEC88F002CC9C1 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2F802F821ECEC88E002CC9C1 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2F86FAB71ED7C71A00E97647 /* Unknown5.25.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F86FAB61ED7C71A00E97647 /* Unknown5.25.png */; };
 		2F86FABA1ED7E00A00E97647 /* YHHCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86FAB91ED7E00A00E97647 /* YHHCircleModel.m */; };
 		2F86FAE91ED8225A00E97647 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86FAC21ED8225A00E97647 /* MKAnnotationView+WebCache.m */; };
@@ -81,13 +78,6 @@
 			remoteGlobalIDString = 2F583E1A1EA86AD20048BF07;
 			remoteInfo = AudioPlayer;
 		};
-		2F802F8C1ECEC88F002CC9C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F583E131EA86AD20048BF07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2F802F811ECEC88E002CC9C1;
-			remoteInfo = Widget;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,7 +87,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2F802F8E1ECEC88F002CC9C1 /* Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,10 +148,6 @@
 		2F7EC6761ED40D8900BF35CF /* YHHMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHMainViewController.h; sourceTree = "<group>"; };
 		2F7EC6771ED40D8900BF35CF /* YHHMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHMainViewController.m; sourceTree = "<group>"; };
 		2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		2F802F821ECEC88E002CC9C1 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F802F851ECEC88E002CC9C1 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
-		2F802F861ECEC88E002CC9C1 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
-		2F802F8B1ECEC88F002CC9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F84ABC51EAF26530075BCDE /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2F86FAB61ED7C71A00E97647 /* Unknown5.25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown5.25.png; sourceTree = "<group>"; };
 		2F86FAB81ED7E00A00E97647 /* YHHCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHCircleModel.h; sourceTree = "<group>"; };
@@ -243,14 +228,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2F802F7F1ECEC88E002CC9C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F802F831ECEC88E002CC9C1 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -303,7 +280,6 @@
 			children = (
 				2F583E1B1EA86AD20048BF07 /* AudioPlayer.app */,
 				2F583E341EA86AD30048BF07 /* AudioPlayerTests.xctest */,
-				2F802F821ECEC88E002CC9C1 /* Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -413,9 +389,6 @@
 		2F802F841ECEC88E002CC9C1 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				2F802F851ECEC88E002CC9C1 /* TodayViewController.h */,
-				2F802F861ECEC88E002CC9C1 /* TodayViewController.m */,
-				2F802F8B1ECEC88F002CC9C1 /* Info.plist */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -540,7 +513,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2F802F8D1ECEC88F002CC9C1 /* PBXTargetDependency */,
 			);
 			name = AudioPlayer;
 			productName = AudioPlayer;
@@ -564,23 +536,6 @@
 			productName = AudioPlayerTests;
 			productReference = 2F583E341EA86AD30048BF07 /* AudioPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2F802F811ECEC88E002CC9C1 /* Widget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2F802F8F1ECEC88F002CC9C1 /* Build configuration list for PBXNativeTarget "Widget" */;
-			buildPhases = (
-				2F802F7E1ECEC88E002CC9C1 /* Sources */,
-				2F802F7F1ECEC88E002CC9C1 /* Frameworks */,
-				2F802F801ECEC88E002CC9C1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Widget;
-			productName = Widget;
-			productReference = 2F802F821ECEC88E002CC9C1 /* Widget.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -607,11 +562,6 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2F583E1A1EA86AD20048BF07;
 					};
-					2F802F811ECEC88E002CC9C1 = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 3XL4J3LLT8;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 2F583E161EA86AD20048BF07 /* Build configuration list for PBXProject "AudioPlayer" */;
@@ -629,7 +579,6 @@
 			targets = (
 				2F583E1A1EA86AD20048BF07 /* AudioPlayer */,
 				2F583E331EA86AD30048BF07 /* AudioPlayerTests */,
-				2F802F811ECEC88E002CC9C1 /* Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -654,13 +603,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2F583E321EA86AD30048BF07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2F802F801ECEC88E002CC9C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -734,14 +676,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2F802F7E1ECEC88E002CC9C1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F802F871ECEC88E002CC9C1 /* TodayViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -749,11 +683,6 @@
 			isa = PBXTargetDependency;
 			target = 2F583E1A1EA86AD20048BF07 /* AudioPlayer */;
 			targetProxy = 2F583E351EA86AD30048BF07 /* PBXContainerItemProxy */;
-		};
-		2F802F8D1ECEC88F002CC9C1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2F802F811ECEC88E002CC9C1 /* Widget */;
-			targetProxy = 2F802F8C1ECEC88F002CC9C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -927,38 +856,6 @@
 			};
 			name = Release;
 		};
-		2F802F901ECEC88F002CC9C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3XL4J3LLT8;
-				INFOPLIST_FILE = Widget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer.Widget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		2F802F911ECEC88F002CC9C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3XL4J3LLT8;
-				INFOPLIST_FILE = Widget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer.Widget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -985,15 +882,6 @@
 			buildConfigurations = (
 				2F583E411EA86AD30048BF07 /* Debug */,
 				2F583E421EA86AD30048BF07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2F802F8F1ECEC88F002CC9C1 /* Build configuration list for PBXNativeTarget "Widget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2F802F901ECEC88F002CC9C1 /* Debug */,
-				2F802F911ECEC88F002CC9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
