@@ -60,6 +60,9 @@
 		2F86FAFB1ED8225A00E97647 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86FAE71ED8225A00E97647 /* UIView+WebCacheOperation.m */; };
 		2F8A1BF81ED6D51000201690 /* YHHCircleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A1BF71ED6D50F00201690 /* YHHCircleListController.m */; };
 		2F8A1BFB1ED6D5CF00201690 /* YHHCircleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A1BFA1ED6D5CF00201690 /* YHHCircleListCell.m */; };
+		2F96B6C51EDFAFDA0014CCAF /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F802F6D1ECEC70D002CC9C1 /* NotificationCenter.framework */; };
+		2F96B6C91EDFAFDA0014CCAF /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F96B6C81EDFAFDA0014CCAF /* TodayViewController.m */; };
+		2F96B6D01EDFAFDA0014CCAF /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2F96B6C41EDFAFDA0014CCAF /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2F96D67E1ED2E0980008CE8F /* YHHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F96D67D1ED2E0980008CE8F /* YHHNetworkManager.m */; };
 		2FA591111EAD98E900EE0347 /* YHHLrcTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA591101EAD98E900EE0347 /* YHHLrcTableView.m */; };
 		2FD0C1FD1ED41BB000E13CEF /* YHHDiscoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD0C1FC1ED41BB000E13CEF /* YHHDiscoverModel.m */; };
@@ -78,6 +81,13 @@
 			remoteGlobalIDString = 2F583E1A1EA86AD20048BF07;
 			remoteInfo = AudioPlayer;
 		};
+		2F96B6CE1EDFAFDA0014CCAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F583E131EA86AD20048BF07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F96B6C31EDFAFDA0014CCAF;
+			remoteInfo = Widget;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +97,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2F96B6D01EDFAFDA0014CCAF /* Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +206,10 @@
 		2F8A1BF71ED6D50F00201690 /* YHHCircleListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHCircleListController.m; sourceTree = "<group>"; };
 		2F8A1BF91ED6D5CF00201690 /* YHHCircleListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHCircleListCell.h; sourceTree = "<group>"; };
 		2F8A1BFA1ED6D5CF00201690 /* YHHCircleListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHCircleListCell.m; sourceTree = "<group>"; };
+		2F96B6C41EDFAFDA0014CCAF /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F96B6C71EDFAFDA0014CCAF /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		2F96B6C81EDFAFDA0014CCAF /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		2F96B6CD1EDFAFDA0014CCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F96D67C1ED2E0980008CE8F /* YHHNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHNetworkManager.h; sourceTree = "<group>"; };
 		2F96D67D1ED2E0980008CE8F /* YHHNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHHNetworkManager.m; sourceTree = "<group>"; };
 		2FA5910F1EAD98E900EE0347 /* YHHLrcTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHHLrcTableView.h; sourceTree = "<group>"; };
@@ -225,6 +240,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F96B6C11EDFAFDA0014CCAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F96B6C51EDFAFDA0014CCAF /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +292,7 @@
 			children = (
 				2F583E1D1EA86AD20048BF07 /* AudioPlayer */,
 				2F583E371EA86AD30048BF07 /* AudioPlayerTests */,
-				2F802F841ECEC88E002CC9C1 /* Widget */,
+				2F96B6C61EDFAFDA0014CCAF /* Widget */,
 				2F802F6C1ECEC70D002CC9C1 /* Frameworks */,
 				2F583E1C1EA86AD20048BF07 /* Products */,
 			);
@@ -280,6 +303,7 @@
 			children = (
 				2F583E1B1EA86AD20048BF07 /* AudioPlayer.app */,
 				2F583E341EA86AD30048BF07 /* AudioPlayerTests.xctest */,
+				2F96B6C41EDFAFDA0014CCAF /* Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -386,13 +410,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2F802F841ECEC88E002CC9C1 /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
 		2F86FABD1ED8225A00E97647 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +478,16 @@
 			name = Circle;
 			sourceTree = "<group>";
 		};
+		2F96B6C61EDFAFDA0014CCAF /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				2F96B6C71EDFAFDA0014CCAF /* TodayViewController.h */,
+				2F96B6C81EDFAFDA0014CCAF /* TodayViewController.m */,
+				2F96B6CD1EDFAFDA0014CCAF /* Info.plist */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		2F96D67B1ED2E01E0008CE8F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +540,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2F96B6CF1EDFAFDA0014CCAF /* PBXTargetDependency */,
 			);
 			name = AudioPlayer;
 			productName = AudioPlayer;
@@ -536,6 +564,23 @@
 			productName = AudioPlayerTests;
 			productReference = 2F583E341EA86AD30048BF07 /* AudioPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F96B6C31EDFAFDA0014CCAF /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F96B6D31EDFAFDA0014CCAF /* Build configuration list for PBXNativeTarget "Widget" */;
+			buildPhases = (
+				2F96B6C01EDFAFDA0014CCAF /* Sources */,
+				2F96B6C11EDFAFDA0014CCAF /* Frameworks */,
+				2F96B6C21EDFAFDA0014CCAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widget;
+			productName = Widget;
+			productReference = 2F96B6C41EDFAFDA0014CCAF /* Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -562,6 +607,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2F583E1A1EA86AD20048BF07;
 					};
+					2F96B6C31EDFAFDA0014CCAF = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3XL4J3LLT8;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 2F583E161EA86AD20048BF07 /* Build configuration list for PBXProject "AudioPlayer" */;
@@ -579,6 +629,7 @@
 			targets = (
 				2F583E1A1EA86AD20048BF07 /* AudioPlayer */,
 				2F583E331EA86AD30048BF07 /* AudioPlayerTests */,
+				2F96B6C31EDFAFDA0014CCAF /* Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -603,6 +654,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2F583E321EA86AD30048BF07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F96B6C21EDFAFDA0014CCAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -676,6 +734,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F96B6C01EDFAFDA0014CCAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F96B6C91EDFAFDA0014CCAF /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -683,6 +749,11 @@
 			isa = PBXTargetDependency;
 			target = 2F583E1A1EA86AD20048BF07 /* AudioPlayer */;
 			targetProxy = 2F583E351EA86AD30048BF07 /* PBXContainerItemProxy */;
+		};
+		2F96B6CF1EDFAFDA0014CCAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F96B6C31EDFAFDA0014CCAF /* Widget */;
+			targetProxy = 2F96B6CE1EDFAFDA0014CCAF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -856,6 +927,38 @@
 			};
 			name = Release;
 		};
+		2F96B6D11EDFAFDA0014CCAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3XL4J3LLT8;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2F96B6D21EDFAFDA0014CCAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3XL4J3LLT8;
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hnssc.SSC.AudioPlayer.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -885,6 +988,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2F96B6D31EDFAFDA0014CCAF /* Build configuration list for PBXNativeTarget "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F96B6D11EDFAFDA0014CCAF /* Debug */,
+				2F96B6D21EDFAFDA0014CCAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

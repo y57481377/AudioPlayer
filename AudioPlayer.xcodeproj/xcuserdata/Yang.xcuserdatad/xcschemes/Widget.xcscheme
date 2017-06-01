@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2F802F6A1ECEC70D002CC9C1"
+               BlueprintIdentifier = "2F96B6C31EDFAFDA0014CCAF"
                BuildableName = "Widget.appex"
                BlueprintName = "Widget"
                ReferencedContainer = "container:AudioPlayer.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2F802F6A1ECEC70D002CC9C1"
+            BlueprintIdentifier = "2F96B6C31EDFAFDA0014CCAF"
             BuildableName = "Widget.appex"
             BlueprintName = "Widget"
             ReferencedContainer = "container:AudioPlayer.xcodeproj">
@@ -67,16 +67,26 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2F583E1A1EA86AD20048BF07"
-            BuildableName = "AudioPlayer.app"
-            BlueprintName = "AudioPlayer"
+            BlueprintIdentifier = "2F96B6C31EDFAFDA0014CCAF"
+            BuildableName = "Widget.appex"
+            BlueprintName = "Widget"
             ReferencedContainer = "container:AudioPlayer.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2F96B6C31EDFAFDA0014CCAF"
+            BuildableName = "Widget.appex"
+            BlueprintName = "Widget"
+            ReferencedContainer = "container:AudioPlayer.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
