@@ -46,17 +46,18 @@
         CGSize strSize = stringEstimateSize(self.info, s, 14);
         
         // 如果有图片，赋上图片高度
-        CGFloat imageH;
-        if (_uploadFiles.count > 0) imageH = Auto_Y(140);
-        else                        imageH = 0;
-
+        CGFloat imageH = 0;
+        if (_uploadFiles.count > 0 && _uploadFiles.count < 3) imageH = Auto_Y(200) + Auto_Y(10);
+        else if (_uploadFiles.count >= 3) imageH = Auto_Y(150) + Auto_Y(10);
+        
+        // 喜欢的人图标
         CGFloat likeH;
-        if (_userArr.count > 0) likeH = Auto_Y(30);
+        if (_userArr.count > 0) likeH = Auto_Y(30) + Auto_Y(10);
         else                    likeH = 0;
     
         
         // 加上cell的抬头高度、间隔高度
-        _cellHeight = strSize.height + imageH + likeH + Auto_Y(90);
+        _cellHeight = strSize.height + imageH + likeH + Auto_Y(70);
     }
     return _cellHeight;
 }
@@ -82,7 +83,7 @@
             [models addObject:model];
         }
         
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         completedHandler(models, nil);
     } failure:^(NSError *error) {
         completedHandler(nil, error);

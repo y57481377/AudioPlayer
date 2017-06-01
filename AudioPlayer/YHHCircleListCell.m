@@ -10,16 +10,21 @@
 #import "YHHCircleModel.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
+
 @implementation YHHCircleListCell {
     UIImageView *_headerImage;
     UILabel *_nameLable;
     UILabel *_contentLable;
 //    UIButton *_showLikedPeople;
     
+    //内容image
     NSInteger _imageCount;
-    NSArray *_displayImages;
+    UIView *_displayImages;
+    UIImageView *_displayOne;
+    
+    //喜欢的人icon
     NSInteger _likedPeople;
-    NSArray *_likedPeopleIcons;
+    UIView *_likedPeopleIcons;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -31,46 +36,60 @@
 }
 
 - (void)createUI {
+    // 头像
     _headerImage = [[UIImageView alloc] initWithFrame:CGRectMake(Auto_X(12), Auto_Y(10), Auto_X(40), Auto_X(40))];
     _headerImage.contentMode = UIViewContentModeScaleAspectFill;
     _headerImage.backgroundColor = random_Color;
     [self.contentView addSubview:_headerImage];
     
+    // 昵称
     _nameLable = [[UILabel alloc] initWithFrame:CGRectMake(_headerImage.yhh_MaxX + 5, Auto_Y(10), Auto_X(100), Auto_Y(20))];
     _nameLable.backgroundColor = random_Color;
     [self.contentView addSubview:_nameLable];
     
+    // 文字内容
     _contentLable = [[UILabel alloc] init];
     _contentLable.font = AutoFont(15);
     _contentLable.numberOfLines = 0;
     _contentLable.backgroundColor = random_Color;
     [self.contentView addSubview:_contentLable];
     
-    NSMutableArray *images = [NSMutableArray array];
+    // 需要展示的图片 _displayOne展示一张，_displayImages展示3张。
+    _displayOne = [[UIImageView alloc] initWithFrame:CGRectMake(Auto_X(12), 0, Screen_Width - Auto_X(24), Auto_Y(200))];
+    _displayOne.contentMode = UIViewContentModeScaleAspectFill;
+    _displayOne.clipsToBounds = YES;
+    [self.contentView addSubview:_displayOne];
+    
+    _displayImages = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Auto_Y(150))];
+    [self.contentView addSubview:_displayImages];
+    
     for (int i = 0; i < 3; i++) {
         UIImageView *imagev = [[UIImageView alloc] init];
+        
+        if (i == 0) {
+            imagev.frame = CGRectMake(Auto_X(12), 0, (Screen_Width - Auto_X(36)) *0.6, Auto_Y(150));
+        }else {
+            imagev.frame = CGRectMake((Screen_Width - Auto_X(36)) *0.6 + Auto_X(24), Auto_Y(81)*(i-1), (Screen_Width - Auto_X(36)) *0.4, Auto_Y(69));
+        }
         imagev.contentMode = UIViewContentModeScaleAspectFill;
         imagev.clipsToBounds = YES;
         imagev.backgroundColor = random_Color;
-        [images addObject:imagev];
-        [self.contentView addSubview:imagev];
+        [_displayImages addSubview:imagev];
     }
-    _displayImages = [NSArray arrayWithArray:images];
     
-    NSMutableArray *icons = [NSMutableArray array];
-    CGFloat x = Auto_X(12);
+    // 喜欢的人的图标
+    _likedPeopleIcons = [[UIView alloc] initWithFrame:CGRectMake(Auto_X(12), 0, Screen_Width - Auto_X(24), Auto_Y(30))];
+    [self.contentView addSubview:_likedPeopleIcons];
+    
+    CGFloat x = 0;
     for (int i = 0; i < 10; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(x, Auto_Y(50), Auto_Y(30), Auto_Y(30));
+        btn.frame = CGRectMake(x, 0, Auto_Y(30), Auto_Y(30));
         btn.backgroundColor = random_Color;
         
-        [icons addObject:btn];
-        [self.contentView addSubview:btn];
-        
+        [_likedPeopleIcons addSubview:btn];
         x += Auto_Y(30) + 4;
     }
-    _likedPeopleIcons = [NSArray arrayWithArray:icons];
-    
 }
 
 - (void)setModel:(YHHCircleModel *)model {
@@ -88,9 +107,9 @@
     _imageCount = model.uploadFiles.count;
     [self layoutDisplayImages];
     
-//    _likedPeople = model.likeNum.integerValue;
+    _likedPeople = model.likeNum.integerValue;
 //    NSLog(@"%@---%@",_likedPeople, model.userArr);
-//    [self layoutLikedPeople];
+    [self layoutLikedPeople];
 }
 
 /** 
@@ -100,36 +119,32 @@
  3～n: 展示3张图片。
  */
 - (void)layoutDisplayImages {
-    for (int i = 0; i < _displayImages.count; i++) {
-        UIImageView *imagev = _displayImages[i];
-//        [imagev removeFromSuperview];
-        imagev.hidden = YES;
-        
-        if (_imageCount == 0) continue;
-        if (_imageCount <= 2) {
-            if (i != 0) continue;
-            imagev.frame = CGRectMake(Auto_X(12), _contentLable.yhh_MaxY + Auto_Y(10), Screen_Width - Auto_X(24), Auto_Y(140));
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://web.hn-ssc.com/%@", _model.uploadFiles[i][@"accessPath"]]];
-            [imagev sd_setImageWithURL:url placeholderImage:[[UIImage imageNamed:@"Unknown5.25"] circleImage]];
-//            [self.contentView addSubview:imagev];
-            imagev.hidden = NO;
+    
+    BOOL hidden = (_imageCount == 0);
+    _displayOne.hidden = hidden;
+    _displayImages.hidden = hidden;
+    if (hidden) return;
+    
+    _displayOne.yhh_Y = _displayImages.yhh_Y = _contentLable.yhh_MaxY + Auto_Y(10);
+    
+    BOOL onlyOne = (!hidden && _imageCount < 3);
+    _displayOne.hidden = !onlyOne;
+    _displayImages.hidden = onlyOne;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_DEFAULT, DISPATCH_QUEUE_PRIORITY_DEFAULT);
+    dispatch_async(queue, ^{
+        if (onlyOne) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://web.hn-ssc.com/%@", _model.uploadFiles[0][@"accessPath"]]];
+            [_displayOne sd_setImageWithURL:url placeholderImage:[[UIImage imageNamed:@"Unknown5.25"] circleImage]];
         }else {
-            if (i == 0) {
-                imagev.frame = CGRectMake(Auto_X(12), _contentLable.yhh_MaxY + Auto_Y(10), (Screen_Width - Auto_X(36)) *0.6, Auto_Y(140));
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://web.hn-ssc.com/%@", _model.uploadFiles[i][@"accessPath"]]];
-                [imagev sd_setImageWithURL:url placeholderImage:[[UIImage imageNamed:@"Unknown5.25"] circleImage]];
-            }else {
-                imagev.frame = CGRectMake((Screen_Width - Auto_X(36)) *0.6 + Auto_X(24), _contentLable.yhh_MaxY + Auto_Y(10) + Auto_Y(76)*(i-1), (Screen_Width - Auto_X(36)) *0.4, Auto_Y(64));
+            NSArray *images = _displayImages.subviews;
+            for (int i = 0; i < images.count; i++) {
+                UIImageView *imagev = images[i];
                 NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://web.hn-ssc.com/%@", _model.uploadFiles[i][@"accessPath"]]];
                 [imagev sd_setImageWithURL:url placeholderImage:[[UIImage imageNamed:@"Unknown5.25"] circleImage]];
             }
-//            [self.contentView addSubview:imagev];
-            imagev.hidden = NO;
-            
-            if (i == 2) break;
         }
-        
-    }
+    });
 }
 
 /**
@@ -140,12 +155,23 @@
 */
 - (void)layoutLikedPeople{
     
-//    dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_DEFAULT, DISPATCH_QUEUE_PRIORITY_DEFAULT);
-//    dispatch_async(queue, ^{
+    BOOL hidden = (_likedPeople == 0);
+    _likedPeopleIcons.hidden = hidden;
+    if (hidden) return;
     
-        for (int i = 0; i < _likedPeopleIcons.count; i++) {
-            UIButton *btn = [_likedPeopleIcons objectAtIndex:i];
-            btn.yhh_Y = _contentLable.yhh_MaxY + (_imageCount > 0 ? Auto_Y(160) : Auto_Y(10));
+    if (_imageCount > 0 && _imageCount < 3)
+        _likedPeopleIcons.yhh_Y = _displayOne.yhh_MaxY + Auto_Y(10);
+    else if (_imageCount >= 3)
+        _likedPeopleIcons.yhh_Y = _displayImages.yhh_MaxY + Auto_Y(10);
+    else
+        _likedPeopleIcons.yhh_Y = _contentLable.yhh_MaxY + Auto_Y(10);
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_DEFAULT, DISPATCH_QUEUE_PRIORITY_DEFAULT);
+    dispatch_async(queue, ^{
+    
+        NSArray *icons = _likedPeopleIcons.subviews;
+        for (int i = 0; i < icons.count; i++) {
+            UIButton *btn = [icons objectAtIndex:i];
             
             if (i < _likedPeople) {
                 btn.hidden = NO;
@@ -156,7 +182,8 @@
             }
         };
         
-//    });
+    });
+
 }
 
 @end
