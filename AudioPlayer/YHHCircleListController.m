@@ -24,6 +24,11 @@
     // Do any additional setup after loading the view.
     [self setNavBarTitle:@"try it"];
     
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperationWithBlock:^{
+        NSLog(@"%@%@",[NSOperationQueue currentQueue],[NSOperationQueue mainQueue]);
+    }];
+    
     _tableView = [[UITableView alloc] initWithFrame:ScreenBounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
