@@ -57,7 +57,7 @@
     
         
         // 加上cell的抬头高度、间隔高度
-        _cellHeight = strSize.height + imageH + likeH + Auto_Y(70);
+        _cellHeight = strSize.height + imageH + likeH + Auto_Y(70) + 30;
     }
     return _cellHeight;
 }

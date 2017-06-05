@@ -13,13 +13,13 @@
 
 @interface YHHCircleListController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSArray *models;
+//@property (strong, nonatomic) UITableView *tableView;
+//@property (strong, nonatomic) NSArray *models;
 @end
 
 @implementation YHHCircleListController {
-//    UITableView *_tableView;
-//    NSArray *_models;
+    UITableView *_tableView;
+    NSArray *_models;
 }
 
 - (void)viewDidLoad {
@@ -37,12 +37,12 @@
     [_tableView registerClass:[YHHCircleListCell class] forCellReuseIdentifier:@"circleCell"];
     [self.view addSubview:_tableView];
     
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     [YHHCircleModel getDataCompletedHandler:^(NSArray *models, NSError *error) {
         if (error) return;
         
-        weakSelf.models = (NSMutableArray *)models;
-        [weakSelf.tableView reloadData];
+        _models = (NSMutableArray *)models;
+        [_tableView reloadData];
     }];
     
 //    NSUInteger bit = [[SDImageCache sharedImageCache] getSize];

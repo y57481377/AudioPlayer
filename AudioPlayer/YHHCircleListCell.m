@@ -17,6 +17,9 @@
     UILabel *_contentLable;
 //    UIButton *_showLikedPeople;
     
+    //放置 点赞、评论btn的容器
+    UIView *_bottomView;
+    
     //内容image
     NSInteger _imageCount;
     UIView *_displayImages;
@@ -25,6 +28,7 @@
     //喜欢的人icon
     NSInteger _likedPeople;
     UIView *_likedPeopleIcons;
+    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -90,6 +94,22 @@
         [_likedPeopleIcons addSubview:btn];
         x += Auto_Y(30) + 4;
     }
+    
+    //  点赞（喜欢）、评论
+    _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, Screen_Width, 20)];
+    [self.contentView addSubview:_bottomView];
+    
+    UIButton *likeBtn = [UIButton buttonWithTitle:@"喜欢" selectedTitle:nil image:nil selectedImage:nil target:self action:@selector(likeBtnClicked:)];
+    likeBtn.frame = CGRectMake(Auto_X(12), 0, Auto_X(60), 20);
+    likeBtn.backgroundColor = random_Color;
+    [likeBtn setTitleColor:black_Text_Color forState:UIControlStateNormal];
+    [likeBtn setTitleColor:red_Globe_Color forState:UIControlStateSelected];
+    [_bottomView addSubview:likeBtn];
+    
+    UIButton *commentBtn = [UIButton buttonWithTitle:@"" image:nil target:self action:@selector(commentBtnClicked:)];
+    commentBtn.frame = CGRectMake(likeBtn.yhh_MaxX + 10, 0, likeBtn.yhh_Width, 20);
+    commentBtn.backgroundColor = random_Color;
+    [_bottomView addSubview:commentBtn];
 }
 
 - (void)setModel:(YHHCircleModel *)model {
@@ -108,8 +128,11 @@
     [self layoutDisplayImages];
     
     _likedPeople = model.likeNum.integerValue;
-//    NSLog(@"%@---%@",_likedPeople, model.userArr);
     [self layoutLikedPeople];
+    
+    if (_likedPeople > 0) _bottomView.yhh_Y = _likedPeopleIcons.yhh_MaxY + Auto_Y(10);
+    else                  [self layoutViewByImageCount:_bottomView];
+    
 }
 
 /** 
@@ -159,12 +182,7 @@
     _likedPeopleIcons.hidden = hidden;
     if (hidden) return;
     
-    if (_imageCount > 0 && _imageCount < 3)
-        _likedPeopleIcons.yhh_Y = _displayOne.yhh_MaxY + Auto_Y(10);
-    else if (_imageCount >= 3)
-        _likedPeopleIcons.yhh_Y = _displayImages.yhh_MaxY + Auto_Y(10);
-    else
-        _likedPeopleIcons.yhh_Y = _contentLable.yhh_MaxY + Auto_Y(10);
+    [self layoutViewByImageCount:_likedPeopleIcons];
     
     dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_DEFAULT, DISPATCH_QUEUE_PRIORITY_DEFAULT);
     dispatch_async(queue, ^{
@@ -184,6 +202,24 @@
         
     });
 
+}
+
+- (void)layoutViewByImageCount:(UIView *)view {
+    CGFloat y = Auto_Y(10);
+    if (_imageCount > 0 && _imageCount < 3)
+        view.yhh_Y = _displayOne.yhh_MaxY + y;
+    else if (_imageCount >= 3)
+        view.yhh_Y = _displayImages.yhh_MaxY + y;
+    else
+        view.yhh_Y = _contentLable.yhh_MaxY + y;
+}
+
+- (void)likeBtnClicked:(UIButton *)sender {
+    NSLog(@"喜欢");
+}
+
+- (void)commentBtnClicked:(UIButton *)sender {
+    NSLog(@"评论");
 }
 
 @end
