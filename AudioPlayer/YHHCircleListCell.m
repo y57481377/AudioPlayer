@@ -116,8 +116,9 @@
     _model = model;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://web.hn-ssc.com/%@", model.headImagePath]];
-    [_headerImage sd_setImageWithURL:url placeholderImage:[[UIImage imageNamed:@"Unknown5.25"] circleImage]];
-    [_headerImage circle];
+    [_headerImage sd_setImageWithURL:url placeholderImage:[[UIImage imageNamed:@"Unknown5.25"] circleImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        if (!error) _headerImage.image = [image circleImage];
+    }];
     
     _contentLable.frame = CGRectMake(Auto_X(12), _headerImage.yhh_MaxY + Auto_Y(10), Screen_Width - Auto_X(24), 1);
     _contentLable.text = model.info;

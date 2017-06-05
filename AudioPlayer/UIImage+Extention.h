@@ -12,6 +12,8 @@
 
 - (UIImage *)circleImage;
 
+- (void)circleImageCompleted:(void(^)(UIImage *circleImage))completed;
+
 + (UIImage *)yhh_imageWithColor:(UIColor *)color;
 
 @end

@@ -37,11 +37,13 @@
         x = 120 + (Auto_Y(40) + 5) * (i%5);
         y = Auto_Y(10) + (Auto_Y(40) + 5) * (int)(i/5);
         UIImageView *imagev = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, Auto_Y(40), Auto_Y(40))];
+        imagev.contentMode = UIViewContentModeScaleAspectFill;
         UIImage *image = [UIImage imageNamed:@"Unknown5.25"];
-        imagev.image = [image circleImage];
+        [image circleImageCompleted:^(UIImage *circleImage) {
+            imagev.image = circleImage;
+        }];
 //        imagev.image = image;
         imagev.backgroundColor = random_Color;
-        imagev.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:imagev];
     }
     self.backgroundColor = random_Color;
