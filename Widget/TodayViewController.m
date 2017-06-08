@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 100);
-//    self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeCompact;
+    self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 30, 100)];
     view.backgroundColor = [UIColor greenColor];
     [self.view addSubview:view];

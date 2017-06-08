@@ -8,7 +8,12 @@
 
 #import <XCTest/XCTest.h>
 
+#import "YHHCircleListController.h"
+
 @interface AudioPlayerTests : XCTestCase
+
+@property (strong, nonatomic) YHHCircleListController *vc;
+
 
 @end
 
@@ -27,6 +32,7 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
 }
 
 - (void)testPerformanceExample {
