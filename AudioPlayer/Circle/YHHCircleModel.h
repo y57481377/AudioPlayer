@@ -17,7 +17,7 @@
 @property (nonatomic, copy) NSString *infoImagePath;
 @property (nonatomic, retain) NSMutableArray *userArr;
 @property (nonatomic, assign) NSInteger likeNum;
-@property (nonatomic, copy) NSString *commentsNum;
+@property (nonatomic, assign) NSInteger commentsNum;
 @property (nonatomic, copy) NSString *shareNum;
 @property (nonatomic, copy) NSString *shareURL; //分享的链接
 @property (nonatomic, copy) NSString *startTime;

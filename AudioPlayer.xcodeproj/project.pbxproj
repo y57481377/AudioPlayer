@@ -396,10 +396,10 @@
 			isa = PBXGroup;
 			children = (
 				2F9A106C1EE92F9300E7E5D4 /* Detail */,
-				2F9A10621EE92F8500E7E5D4 /* YHHCircleListCell.h */,
-				2F9A10631EE92F8500E7E5D4 /* YHHCircleListCell.m */,
 				2F9A10641EE92F8500E7E5D4 /* YHHCircleListController.h */,
 				2F9A10651EE92F8500E7E5D4 /* YHHCircleListController.m */,
+				2F9A10621EE92F8500E7E5D4 /* YHHCircleListCell.h */,
+				2F9A10631EE92F8500E7E5D4 /* YHHCircleListCell.m */,
 				2F9A10661EE92F8500E7E5D4 /* YHHCircleModel.h */,
 				2F9A10671EE92F8500E7E5D4 /* YHHCircleModel.m */,
 			);

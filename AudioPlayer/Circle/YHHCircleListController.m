@@ -11,6 +11,8 @@
 #import "YHHCircleModel.h"
 #import "SDImageCache.h"
 
+#import "YHHCircleDetailController.h"
+
 @interface YHHCircleListController ()<UITableViewDelegate, UITableViewDataSource, CircleCellProtocol>
 
 //@property (strong, nonatomic) UITableView *tableView;
@@ -27,14 +29,16 @@
     // Do any additional setup after loading the view.
     [self setNavBarTitle:@"try it"];
     
-    NSUInteger bit = [[SDImageCache sharedImageCache] getSize];
-    NSUInteger count = [[SDImageCache sharedImageCache] getDiskCount];
+    __block NSUInteger bit = [[SDImageCache sharedImageCache] getSize];
+    __block NSUInteger count = [[SDImageCache sharedImageCache] getDiskCount];
     NSLog(@"bit = %ld----count = %ld", bit, count);
     [[SDImageCache sharedImageCache] clearMemory];
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        bit = [[SDImageCache sharedImageCache] getSize];
+        count = [[SDImageCache sharedImageCache] getDiskCount];
+        NSLog(@"clear! bit = %ld----count = %ld", bit, count);
+    }];
     
-    bit = [[SDImageCache sharedImageCache] getSize];
-    count = [[SDImageCache sharedImageCache] getDiskCount];
-    NSLog(@"clear! bit = %ld----count = %ld", bit, count);
     
     _tableView = [[UITableView alloc] initWithFrame:ScreenBounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -87,21 +91,25 @@
 
 #pragma mark --- CircleProtocolCell
 - (void)commentProtocol:(YHHCircleListCell *)cell {
-    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
+    __block NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    
+    YHHCircleDetailController *vc = [[YHHCircleDetailController alloc] init];
+    vc.articleId = cell.model.articleID;
+    
+    // 发布评论后的block回调
+    vc.commentBlock = ^() {
+        cell.model.commentsNum += 1;
+        [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)likeProtocolWithCell:(YHHCircleListCell *)cell {
+    __block NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    
     [cell.model likeCompletedHandler:^(BOOL isLike, NSError *error) {
         if (error) return;
-        
-        NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
         [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        
-//        [YHHCircleModel getDataCompletedHandler:^(NSArray *models, NSError *error) {
-//            if (error) return;
-//
-//            _models = (NSMutableArray *)models;
-//        }];
     }];
 }
 @end

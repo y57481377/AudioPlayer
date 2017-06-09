@@ -7,6 +7,7 @@
 //
 
 #import "YHHCircleDetailController.h"
+#import "YHHNetworkManager.h"
 
 @interface YHHCircleDetailController ()
 
@@ -17,6 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSString *urlstr = @"http://web.hn-ssc.com/ssc-circle/comment/findByPage.json";
+    NSDictionary *body = @{
+                           @"articleId":_articleId,
+                           @"num": @"1",
+                           @"size": @"10"
+                           };
+    
+    [[YHHNetworkManager shareNetworkManager] POST:urlstr params:body success:^(id responseObject) {
+        NSLog(@"%@" ,responseObject);
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.commentBlock)
+        self.commentBlock();
 }
 
 - (void)didReceiveMemoryWarning {

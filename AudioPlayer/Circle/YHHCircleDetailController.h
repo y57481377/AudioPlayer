@@ -9,5 +9,6 @@
 #import "YHHRootViewController.h"
 
 @interface YHHCircleDetailController : YHHRootViewController
-
+@property (strong, nonatomic) NSString *articleId;
+@property (strong, nonatomic) void(^commentBlock)();
 @end

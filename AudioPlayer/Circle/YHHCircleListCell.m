@@ -29,6 +29,7 @@
     NSInteger _likedPeople;
     UIView *_likedPeopleIcons;
     UIButton *_likeBtn;
+    UIButton *_commentBtn;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -106,10 +107,10 @@
     [_likeBtn setTitleColor:red_Globe_Color forState:UIControlStateSelected];
     [_bottomView addSubview:_likeBtn];
     
-    UIButton *commentBtn = [UIButton buttonWithTitle:@"" image:nil target:self action:@selector(commentBtnClicked:)];
-    commentBtn.frame = CGRectMake(_likeBtn.yhh_MaxX + 10, 0, _likeBtn.yhh_Width, 20);
-    commentBtn.backgroundColor = random_Color;
-    [_bottomView addSubview:commentBtn];
+    _commentBtn = [UIButton buttonWithTitle:@"" image:nil target:self action:@selector(commentBtnClicked:)];
+    _commentBtn.frame = CGRectMake(_likeBtn.yhh_MaxX + 10, 0, _likeBtn.yhh_Width, 20);
+    _commentBtn.backgroundColor = random_Color;
+    [_bottomView addSubview:_commentBtn];
 }
 
 - (void)setModel:(YHHCircleModel *)model {
@@ -147,6 +148,8 @@
     // 当前circle article 是否喜欢
     _likeBtn.selected = model.isLikeCurrArticle;
     _likeBtn.userInteractionEnabled = YES;
+    
+    [_commentBtn setTitle:[NSString stringWithFormat:@"%ld", model.commentsNum]  forState:UIControlStateNormal];
 }
 
 /** 
@@ -241,6 +244,7 @@
 
 - (void)likeBtnClicked:(UIButton *)sender {
     NSLog(@"喜欢");
+    // 限制用户连续点击 “喜欢”、刷新完毕后允许点击
     sender.userInteractionEnabled = NO;
     [self.protocol likeProtocolWithCell:self];
 }

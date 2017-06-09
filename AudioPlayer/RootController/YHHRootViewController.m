@@ -21,17 +21,15 @@
     _navBar.backgroundColor = red_Globe_Color;
     
     [self setBackItem];
-    [self.view addSubview:_navBar];
+    
 }
 
 - (void)popController {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-// 把_navBar加在最顶层
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    [_navBar removeFromSuperview];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.view addSubview:_navBar];
 }
 

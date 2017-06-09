@@ -27,7 +27,7 @@
     //}
     self.userArr = [dict objectForKey:@"userList"];
     self.likeNum = [[dict objectForKey:@"likeNum"] integerValue];
-    self.commentsNum = [dict objectForKey:@"commentNum"];
+    self.commentsNum = [[dict objectForKey:@"commentNum"] integerValue];
     self.shareNum = [dict objectForKey:@""];
     self.startTime = [dict objectForKey:@"createTime"];
     self.infoId = [dict objectForKey:@"id"];
