@@ -10,35 +10,6 @@
 
 @implementation UIButton (Extension)
 
-+ (instancetype)buttonWithTitle:(NSString *)title target:(id)target action:(SEL)action {
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-//    [btn sizeToFit];
-    return btn;
-}
-
-+ (instancetype)buttonWithTitle:(NSString *)title image:(NSString *)image target:(id)target action:(SEL)action {
-    
-    UIButton *btn = [self buttonWithTitle:title target:target action:action];
-    
-    [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-//    [btn sizeToFit];
-    return btn;
-}
-
-+ (instancetype)buttonWithTitle:(NSString *)title selectedTitle:(NSString *)selectedTitle image:(NSString *)image selectedImage:(NSString *)selectedImage target:(id)target action:(SEL)action {
-    
-    UIButton *btn = [self buttonWithTitle:title image:image target:target action:action];
-    
-    [btn setTitle:selectedTitle forState:UIControlStateSelected];
-    [btn setImage:[UIImage imageNamed:selectedImage] forState:UIControlStateSelected];
-//    [btn sizeToFit];
-    return btn;
-}
-
 - (void)layoutButtonWithEdgeInsetsStyle:(YHHButtonEdgeInsetsStyle)style imageTitleSpace:(CGFloat)space {
     
     self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -76,6 +47,54 @@
     self.imageEdgeInsets = imageEdgeInsets;
     self.titleEdgeInsets = labelEdgeInsets;
 }
+@end
 
 
+@implementation UIButton (Set)
+static void(^actionBlock)(UIButton *btn);
+- (setBlock)yhh_title {
+    __weak typeof(self) weakSelf = self;
+    return ^UIButton *(NSString *str, UIControlState state) {
+        [weakSelf setTitle:str forState:state];
+        return weakSelf;
+    };
+}
+
+- (setBlock)yhh_image {
+    __weak typeof(self) weakSelf = self;
+    return ^UIButton *(id image, UIControlState state) {
+        if ([image isKindOfClass:[NSString class]]) {
+            image = [UIImage imageNamed:image];
+        }
+        [weakSelf setImage:image forState:state];
+        return weakSelf;
+    };
+}
+
+- (setBlock)yhh_backgroundImage {
+    __weak typeof(self) weakSelf = self;
+    return ^UIButton *(id image, UIControlState state) {
+        if ([image isKindOfClass:[NSString class]]) {
+            image = [UIImage imageNamed:image];
+        }
+        [weakSelf setBackgroundImage:image forState:state];
+        return weakSelf;
+    };
+}
+
++ (instancetype)yhh_buttonWithSetProperty:(void(^)(UIButton *btn))setProperty action:(void(^)(UIButton *btn))action {
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    if(setProperty) setProperty(btn);
+    
+    actionBlock = action;
+    [btn addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
+    return btn;
+}
+
++ (void)touchAction:(UIButton *)btn {
+    if (actionBlock) {
+        actionBlock(btn);
+    }
+}
 @end

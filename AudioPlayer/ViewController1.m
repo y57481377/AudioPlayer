@@ -26,15 +26,22 @@
     
     // 设置导航栏按钮
     [self setNavBarTitle:@"第一页"];
-    UIButton *left = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search1)];
+    
+    UIButton *left = [UIButton yhh_buttonWithSetProperty:^(UIButton *btn) {
+        btn.yhh_title(@"yy", UIControlStateNormal).yhh_image(@"search", UIControlStateNormal);
+    } action:^(UIButton *btn) {
+        btn.yhh_image(@"back", UIControlStateNormal);
+        [self search1];
+    }];
     left.frame = CGRectMake(0, 0, 50, 50);
     [self setNavBarLeftItem:left];
     
-    UIButton *left1 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search2)];
-    left1.frame = CGRectMake(0, 0, 50, 50);
-    UIButton *left2 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search3)];
-    left2.frame = CGRectMake(0, 0, 50, 50);
-    [self setNavBarLeftItems:@[left1,left2,left]];
+//    UIButton *left1 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search2)];
+//    left1.frame = CGRectMake(0, 0, 50, 50);
+//    UIButton *left2 = [UIButton buttonWithTitle:nil image:@"search" target:self action:@selector(search3)];
+//    left2.frame = CGRectMake(0, 0, 50, 50);
+//    [self setNavBarLeftItems:@[left1,left2,left]];
+    [self setNavBarLeftItem:left];
     
     UITextField *text = [[UITextField alloc] initWithFrame:CGRectMake(20, 100, 280, 30)];
     text.backgroundColor = [UIColor cyanColor];

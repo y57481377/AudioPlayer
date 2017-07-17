@@ -14,7 +14,7 @@
 #import "YHHLrcTableView.h"
 #import "UIImage+Extention.h"
 #import <MediaPlayer/MediaPlayer.h>
-
+#import <Accelerate/Accelerate.h>
 @interface MusicPlayerController ()<AVAudioPlayerDelegate>
 
 @property (strong, nonatomic) AVPlayer *player;
@@ -45,21 +45,22 @@
     [self setNavBarColor:[UIColor clearColor]];
     [self setNavBarShadowColor:white_Text_Color];
     
+    //设置歌词初始为透明
+    _lrcView.alpha = 0.0;
+    
     _music = [YHHMusicTool playingMusic];
     _player = [YHHMusicTool audioPlayerWithMusic:_music];
     _playerItem = _player.currentItem;
     [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     [_playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     [self setupMusic];
+    
 
 }
 
 - (void)viewWillLayoutSubviews {
     // 光盘背景view
-    _diskImage.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
     _diskImage.layer.cornerRadius = _diskImage.bounds.size.width / 2;
-    _diskImage.layer.borderWidth = 10;
-    _diskImage.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1].CGColor;
     _diskImage.layer.masksToBounds = YES;
 }
 
@@ -101,10 +102,18 @@
 //    _player.delegate = self;
     
     [self setupMusic];
-    
+
     [self invalidateTimer];
     [self startTimer];
     [_player play];
+    
+    // 设置disk的旋转。
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    anim.fromValue = @0;
+    anim.toValue = @(M_PI*2);
+    anim.duration = 10;
+    anim.repeatCount = MAXFLOAT;
+    [_diskImage.layer addAnimation:anim forKey:@"anim"];
     
     [self setupLockedView];
 }
@@ -122,13 +131,17 @@
 #pragma mark --- 播放控制
 - (IBAction)playBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
+    [sender setImage:[UIImage imageNamed:@"cm2_fm_btn_pause_prs"] forState:UIControlStateHighlighted|UIControlStateSelected];
+    
     if (sender.selected) {
         NSLog(@"播放");
         [self startPlayingMusic];
+        
     }else {
         NSLog(@"暂停");
         [_player pause];
         [self invalidateTimer];
+        [_diskImage.layer removeAllAnimations];
     }
 }
 
@@ -258,3 +271,4 @@
 }
 
 @end
+

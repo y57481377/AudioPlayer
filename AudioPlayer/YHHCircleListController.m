@@ -45,6 +45,7 @@
         _models = (NSMutableArray *)models;
         [_tableView reloadData];
     }];
+    
 }
 
 #pragma mark --- Table DataSource /Delegate

@@ -64,6 +64,8 @@
         btn.frame = CGRectMake(x, Auto_Y(50), Auto_Y(30), Auto_Y(30));
         btn.backgroundColor = random_Color;
         
+        btn.yhh_title(@"yang",UIControlStateNormal).yhh_image([UIImage imageNamed:@"cm2_fm_btn_pause"], UIControlStateNormal);
+        
         [icons addObject:btn];
         [self.contentView addSubview:btn];
         

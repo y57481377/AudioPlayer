@@ -24,10 +24,6 @@
     [self.view addSubview:_navBar];
 }
 
-- (void)popController {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 // 把_navBar加在最顶层
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -38,7 +34,14 @@
 // 设置返回按钮
 - (void)setBackItem {
     if (self.navigationController.viewControllers.count > 1) {
-        UIButton *leftBack = [UIButton buttonWithTitle:nil image:@"back" target:self action:@selector(popController)];
+        
+        UIButton *leftBack = [UIButton yhh_buttonWithSetProperty:^(UIButton *btn) {
+            
+            btn.yhh_image(@"back", UIControlStateNormal);
+        } action:^(UIButton *btn) {
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
         _navBar.backItem = leftBack;
     }
 }
