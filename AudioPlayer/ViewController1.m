@@ -77,9 +77,9 @@
 
 
 
-- (void)viewWillAppear:(BOOL)animated {
+//- (void)viewWillAppear:(BOOL)animated {
 //    self.hidesBottomBarWhenPushed = YES;
-}
+//}
 
 //- (void)viewDidDisappear:(BOOL)animated {
 //    self.hidesBottomBarWhenPushed = NO;

@@ -35,12 +35,12 @@ typedef UIButton *(^setBlock)(id param, UIControlState state);
  设置title调用时btn.title(title, UIControlState)
  */
 - (setBlock)yhh_title;
+- (setBlock)yhh_titleColor;
 /**
  设置image调用时btn.image(image/imageName, UIControlState)
  */
 - (setBlock)yhh_image;
 - (setBlock)yhh_backgroundImage;
-
 
 /**
  通过block设置Btn的属性:

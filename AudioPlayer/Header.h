@@ -58,5 +58,6 @@ autoFont = [UIFont systemFontOfSize:size + 1.5];\
 #define random_Color yhh_Color(arc4random_uniform(255),arc4random_uniform(255),arc4random_uniform(255),1)
 #define white_Text_Color yhh_Color(233, 233, 233, 1)    //文字白色
 #define red_Globe_Color yhh_Color(183,39,18,1)          //全局红色
+#define black_Text_Color [UIColor blackColor]
 
 #endif /* Header_h */

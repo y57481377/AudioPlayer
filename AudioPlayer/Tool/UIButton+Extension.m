@@ -54,8 +54,19 @@
 static void(^actionBlock)(UIButton *btn);
 - (setBlock)yhh_title {
     __weak typeof(self) weakSelf = self;
-    return ^UIButton *(NSString *str, UIControlState state) {
-        [weakSelf setTitle:str forState:state];
+    return ^UIButton *(NSString *param, UIControlState state) {
+        [weakSelf setTitle:param forState:state];
+        return weakSelf;
+    };
+}
+
+- (setBlock)yhh_titleColor {
+    __weak typeof(self) weakSelf = self;
+    return ^UIButton *(UIColor *param, UIControlState state) {
+        if (!param) {
+            param = [UIColor blackColor];
+        }
+        [weakSelf setTitleColor:param forState:state];
         return weakSelf;
     };
 }

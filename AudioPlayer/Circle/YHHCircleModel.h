@@ -16,14 +16,14 @@
 @property (nonatomic, copy) NSString *info;
 @property (nonatomic, copy) NSString *infoImagePath;
 @property (nonatomic, retain) NSMutableArray *userArr;
-@property (nonatomic, copy) NSString *likeNum;
-@property (nonatomic, copy) NSString *commentsNum;
+@property (nonatomic, assign) NSInteger likeNum;
+@property (nonatomic, assign) NSInteger commentsNum;
 @property (nonatomic, copy) NSString *shareNum;
 @property (nonatomic, copy) NSString *shareURL; //分享的链接
 @property (nonatomic, copy) NSString *startTime;
 @property (nonatomic, copy) NSString *infoId;
 //@property (nonatomic, copy) NSString *hadSelf;
-@property (nonatomic, copy) NSString *isLikeCurrArticle;
+@property (nonatomic, assign) BOOL isLikeCurrArticle;
 @property (nonatomic, retain) NSMutableArray *uploadFiles;
 
 @property (nonatomic, retain) NSString *userID;
@@ -32,5 +32,7 @@
 
 @property (assign, nonatomic) CGFloat cellHeight;
 
-+ (void)getDataCompletedHandler:(void(^)(NSArray *models ,NSError *error))completedHandler;
++ (void)getDataCompletedHandler:(void(^)(NSArray *models, NSError *error))completedHandler;
+
+- (void)likeCompletedHandler:(void(^)(BOOL isLike, NSError *error))completedHandler;
 @end

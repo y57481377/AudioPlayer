@@ -21,7 +21,7 @@
     _navBar.backgroundColor = red_Globe_Color;
     
     [self setBackItem];
-    [self.view addSubview:_navBar];
+    
 }
 
 // 把_navBar加在最顶层

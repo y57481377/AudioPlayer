@@ -9,9 +9,14 @@
 #import "YHHCircleListController.h"
 #import "YHHCircleListCell.h"
 #import "YHHCircleModel.h"
+#import "SDImageCache.h"
 
-@interface YHHCircleListController ()<UITableViewDelegate, UITableViewDataSource>
+#import "YHHCircleDetailController.h"
 
+@interface YHHCircleListController ()<UITableViewDelegate, UITableViewDataSource, CircleCellProtocol>
+
+//@property (strong, nonatomic) UITableView *tableView;
+//@property (strong, nonatomic) NSArray *models;
 @end
 
 @implementation YHHCircleListController {
@@ -24,10 +29,16 @@
     // Do any additional setup after loading the view.
     [self setNavBarTitle:@"try it"];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperationWithBlock:^{
-        NSLog(@"%@%@",[NSOperationQueue currentQueue],[NSOperationQueue mainQueue]);
+    __block NSUInteger bit = [[SDImageCache sharedImageCache] getSize];
+    __block NSUInteger count = [[SDImageCache sharedImageCache] getDiskCount];
+    NSLog(@"bit = %ld----count = %ld", bit, count);
+    [[SDImageCache sharedImageCache] clearMemory];
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        bit = [[SDImageCache sharedImageCache] getSize];
+        count = [[SDImageCache sharedImageCache] getDiskCount];
+        NSLog(@"clear! bit = %ld----count = %ld", bit, count);
     }];
+    
     
     _tableView = [[UITableView alloc] initWithFrame:ScreenBounds style:UITableViewStylePlain];
     _tableView.dataSource = self;
@@ -39,6 +50,7 @@
     [_tableView registerClass:[YHHCircleListCell class] forCellReuseIdentifier:@"circleCell"];
     [self.view addSubview:_tableView];
     
+//    __weak typeof(self) weakSelf = self;
     [YHHCircleModel getDataCompletedHandler:^(NSArray *models, NSError *error) {
         if (error) return;
         
@@ -64,6 +76,8 @@
 //    cell.count = arc4random_uniform(4);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    cell.protocol = self;
+    
     return cell;
 }
 
@@ -75,4 +89,27 @@
     
 }
 
+#pragma mark --- CircleProtocolCell
+- (void)commentProtocol:(YHHCircleListCell *)cell {
+    __block NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    
+    YHHCircleDetailController *vc = [[YHHCircleDetailController alloc] init];
+    vc.articleId = cell.model.articleID;
+    
+    // 发布评论后的block回调
+    vc.commentBlock = ^() {
+        cell.model.commentsNum += 1;
+        [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)likeProtocolWithCell:(YHHCircleListCell *)cell {
+    __block NSIndexPath *indexPath = [_tableView indexPathForCell:cell];
+    
+    [cell.model likeCompletedHandler:^(BOOL isLike, NSError *error) {
+        if (error) return;
+        [_tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+}
 @end
